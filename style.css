@@ -1,16 +1,10 @@
-// File: style.css (publicado en GitHub Pages)
 /* LogMeIn Rescue InstantChat Hosted CSS (adaptado MediaMarkt) */
 
 /* Base: cuerpo y área principal */
 .ic_htmlbody {
     font-family: tahoma, arial, verdana !important;
     font-size: 13px !important;
-    background: linear-gradient(to bottom, #e0e4e9, #f5f9fc) !important;
-    box-sizing: border-box !important;
-    border: 10px solid #D9222A !important;
-    width: 100%;
-    height: 100%;
-    margin: 0;
+    background-color: #ffffff !important;
 }
 .ic_bodyarea {
     position: absolute !important;
@@ -18,20 +12,26 @@
     top: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background-color: transparent !important;
+    background-color: #49589E !important;
     z-index: 0 !important;
 }
 .ic_shadow {
-    display: none !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #000 !important;
+    opacity: 0.5 !important;
+    z-index: 9 !important;
 }
 .ic_maincontentarea {
     position: absolute !important;
     top: 20px !important;
     left: 20px !important;
-    width: calc(100% - 40px) !important; /* account for borders */
-    height: calc(100% - 40px) !important;
-    background: transparent !important;
-    box-sizing: border-box !important;
+    width: 350px !important;
+    height: 454px !important;
+    background-image: url('/InstantChat/Standard/Images/ic_background.jpg') !important;
 }
 
 /* MediaMarkt overrides */
@@ -63,6 +63,10 @@
   overflow: auto !important;
 }
 
+.ic_htmlbody {
+  border: 10px solid #D9222A !important;
+}
+
 /* Ocultar logos, iconos y selectores */
 .ic_lang_container,
 .ic_windowtitle_container,
@@ -78,29 +82,38 @@
   display: none !important;
 }
 
+/* Borde rojo completo alrededor de la ventana */
+.ic-window {
+  box-sizing: border-box !important;
+  border: 10px solid #D9222A !important;
+}
+
+/* Asegurar contenedor completo */
+html, body {
+  margin: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+#ICContainer {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 /* Ajustes de alineación del chat */
 .ic_chatlog {
-  padding: 0 10px !important;
-  box-sizing: border-box !important;
-}
-.ic_text_chatline {
-  display: flex !important;
-  align-items: flex-start !important;
-  margin-bottom: 4px !important;
+  padding-left: 17px !important;
+  padding-top: 10px !important;
+  box-sizing: border-box;
 }
 .ic_text_chattable {
   margin: 0 !important;
 }
-.ic_text_chatcontent {
-  margin: 0 !important;
-  padding-left: 6px !important;
-}
 
 /* Cambiar etiqueta 'Customer' a 'Cliente' */
 .ic_text_chattable_td2_client {
-  position: relative;
+  /* Oculta el texto original 'Customer' */
   color: transparent !important;
-  padding-right: 4px !important;
+  position: relative;
 }
 .ic_text_chattable_td2_client:before {
   content: 'Cliente:' !important;
