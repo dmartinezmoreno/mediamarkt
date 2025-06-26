@@ -42,12 +42,12 @@
 .ic-window .ic-custom-logo,
 .ic-window .ic-lang_select,
 .ic-window .ic_lang_select,
-#ic_lang_container,
-#ic_windowtitle_container,
-#ic_windowtitle_main,
-#ic_windowtitle_content,
-#ic_custom_icon,
-#ic_custom_logo,
+.ic_lang_container,
+.ic_windowtitle_container,
+.ic_windowtitle_main,
+.ic_windowtitle_content,
+.ic_custom_icon,
+.ic_custom_logo,
 .ic-lang_select_arrowimg,
 .ic-window .ic-lang_select_arrowimg {
   display: none !important;
