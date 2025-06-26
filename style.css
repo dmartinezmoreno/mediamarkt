@@ -1,4 +1,6 @@
-/* Base styles from LogMeIn InstantChat1 */
+/* LogMeIn Rescue InstantChat Hosted CSS (adaptado MediaMarkt) */
+
+/* Base: cuerpo y área principal */
 .ic_htmlbody {
     font-family: tahoma, arial, verdana !important;
     font-size: 11px !important;
@@ -31,13 +33,14 @@
     height: 454px !important;
     background-image: url('/InstantChat/Standard/Images/ic_background.jpg') !important;
 }
-/* MediaMarkt theme overrides */
+
+/* MediaMarkt overrides */
 .ic-window {
   font-family: 'Open Sans', sans-serif !important;
 }
 .ic-window .ic-header {
   background-color: #D9222A !important;
-  color: #fff !important;
+  color: #ffffff !important;
   padding: 8px !important;
 }
 .ic-window .ic-header-title {
@@ -45,10 +48,11 @@
   margin: 0 !important;
 }
 .ic-window .ic-button,
-.ic-window .ic-status-button {
+.ic-window .ic-status-button,
+.ic-window .ic-send-button {
   background-color: #D9222A !important;
   border: 1px solid #AA1A1F !important;
-  color: #fff !important;
+  color: #ffffff !important;
   padding: 6px 12px !important;
   border-radius: 4px !important;
   cursor: pointer !important;
@@ -58,7 +62,8 @@
   padding: 10px !important;
   overflow: auto !important;
 }
-/* Hide unwanted elements */
+
+/* Ocultar logos, iconos y selectores */
 .ic_lang_container,
 .ic_windowtitle_container,
 .ic_windowtitle_main,
@@ -72,7 +77,8 @@
 .ic-window .ic-brand-logo {
   display: none !important;
 }
-/* Ensure full container */
+
+/* Asegurar contenedor completo */
 html, body {
   margin: 0 !important;
   height: 100% !important;
@@ -82,5 +88,4 @@ html, body {
   width: 100% !important;
   height: 100% !important;
 }
-
 
