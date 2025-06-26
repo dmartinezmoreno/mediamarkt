@@ -4,6 +4,9 @@
 .ic_htmlbody {
     font-family: tahoma, arial, verdana !important;
     font-size: 11px !important;
+    background: linear-gradient(to bottom, #e0e4e9, #f5f9fc) !important;
+}
+    font-size: 11px !important;
     background-color: #49589F !important;
 }
 .ic_bodyarea {
