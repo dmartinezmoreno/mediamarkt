@@ -1,0 +1,34 @@
+.ic-window {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f5f9fc;
+}
+.ic-window .ic-header {
+  background-color: #D9222A !important;
+  color: #fff !important;
+  padding: 8px;
+}
+.ic-window .ic-button {
+  background-color: #D9222A !important;
+  border: 1px solid #AA1A1F !important;
+  color: #fff !important;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.ic-window .ic-body {
+  background: linear-gradient(to bottom, #e0e4e9, #f5f9fc) !important;
+  padding: 10px;
+  overflow: auto !important;
+}
+/* Ocultar logos y cabeceras */
+.ic-window .ic-logo,
+.ic-window .ic-header-logo,
+.ic-window .ic-brand-logo,
+.ic-window .ic-windowtitle_container,
+.ic-window .ic-windowtitle_main,
+.ic-window .ic-windowtitle_content,
+.ic-window .ic-custom_icon,
+.ic-window .ic-lang_select,
+#ic_lang_container {
+  display: none !important;
+}
