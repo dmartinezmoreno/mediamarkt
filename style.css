@@ -1,34 +1,55 @@
-.ic-window {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f5f9fc;
+.ic-htmlbody, .ic-window {
+  font-family: 'Open Sans', sans-serif !important;
+  background-color: #f5f9fc !important;
 }
+/* Cabecera personalizada */
 .ic-window .ic-header {
   background-color: #D9222A !important;
-  color: #fff !important;
-  padding: 8px;
+  color: #ffffff !important;
+  padding: 8px !important;
 }
-.ic-window .ic-button {
+.ic-window .ic-header-title {
+  font-size: 16px !important;
+  margin: 0 !important;
+}
+/* Botones */
+.ic-window .ic-button,
+.ic-window .ic-status-button {
   background-color: #D9222A !important;
   border: 1px solid #AA1A1F !important;
-  color: #fff !important;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
+  color: #ffffff !important;
+  padding: 6px 12px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
 }
-.ic-window .ic-body {
+/* Cuerpo de chat */
+.ic-window .ic-body,
+.ic_windowtitle_container ~ .ic-bodyarea {
   background: linear-gradient(to bottom, #e0e4e9, #f5f9fc) !important;
-  padding: 10px;
+  padding: 10px !important;
   overflow: auto !important;
 }
-/* Ocultar logos y cabeceras */
+/* Ocultar logos y elementos no deseados */
 .ic-window .ic-logo,
 .ic-window .ic-header-logo,
 .ic-window .ic-brand-logo,
 .ic-window .ic-windowtitle_container,
 .ic-window .ic-windowtitle_main,
 .ic-window .ic-windowtitle_content,
-.ic-window .ic-custom_icon,
+.ic-window .ic_custom_icon,
+.ic-window .ic-custom-icon,
+.ic-window .ic_custom_logo,
+.ic-window .ic-custom-logo,
 .ic-window .ic-lang_select,
-#ic_lang_container {
+.ic-window .ic_lang_select,
+#ic_lang_container,
+#ic_windowtitle_container,
+#ic_windowtitle_main,
+#ic_windowtitle_content,
+#ic_custom_icon,
+#ic_custom_logo {
   display: none !important;
 }
+/* Ajuste final de tamaño */
+html, body { margin: 0 !important; height: 100% !important; overflow: hidden !important; }
+#ICContainer { width: 100% !important; height: 100% !important; }
