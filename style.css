@@ -34,7 +34,6 @@
     left: 20px !important;
     width: 350px !important;
     height: 454px !important;
-    background-image: url('/InstantChat/Standard/Images/ic_background.jpg') !important;
 }
 
 /* MediaMarkt overrides */
@@ -91,4 +90,24 @@ html, body {
   width: 100% !important;
   height: 100% !important;
 }
+
+/* Ajustes de alineación del chat */
+.ic_chatlog {
+  padding-left: 17px !important;
+  padding-top: 10px !important;
+  box-sizing: border-box;
+}
+.ic_text_chattable {
+  margin: 0 !important;
+}
+
+/* Cambiar etiqueta 'Customer' a 'Cliente' */
+.ic_text_chattable_td2_client:before {
+  content: 'Cliente: ' !important;
+}
+.ic_text_chattable_td2_client {
+  font-weight: bold !important;
+  color: #0060C7 !important;
+}
+
 
