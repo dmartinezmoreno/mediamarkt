@@ -47,9 +47,12 @@
 #ic_windowtitle_main,
 #ic_windowtitle_content,
 #ic_custom_icon,
-#ic_custom_logo {
+#ic_custom_logo,
+.ic-lang_select_arrowimg,
+.ic-window .ic-lang_select_arrowimg {
   display: none !important;
 }
 /* Ajuste final de tamaño */
 html, body { margin: 0 !important; height: 100% !important; overflow: hidden !important; }
 #ICContainer { width: 100% !important; height: 100% !important; }
+
