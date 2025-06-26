@@ -1,4 +1,4 @@
-/* LogMeIn Rescue InstantChat Hosted CSS (adaptado MediaMarkt) */
+/* LogMeIn Rescue InstantChat Hosted CSS (adaptado MediaMarkt)8 */
 
 /* 1. Base: cuerpo y área principal */
 .ic_htmlbody {
@@ -83,11 +83,19 @@ html, body, #ICContainer {
   overflow: hidden !important;
 }
 
-/* 7. Alineación de líneas de chat */
+/* 7. Alineación de líneas de chat y scroll */
+.ic_chatlog {
+  padding-left: 17px !important;
+  padding-top: 10px !important;
+  box-sizing: border-box;
+  overflow-y: auto !important;
+  max-height: calc(100% - 80px) !important; /* deja espacio para input */
+}
 .ic_text_chatline {
   display: flex !important;
   align-items: flex-start !important;
   justify-content: flex-start !important;
+  flex-wrap: wrap !important;
   margin-bottom: 4px !important;
 }
 .ic_text_chattable {
@@ -101,11 +109,13 @@ html, body, #ICContainer {
 .ic_text_chattable td {
   vertical-align: top !important;
   padding: 2px 8px !important;
+  white-space: nowrap !important;
 }
 .ic_text_chatcontent {
   margin: 0 !important;
   padding-left: 6px !important;
-  flex: none !important;
+  flex: 1 !important;
+  word-break: break-word !important;
 }
 
 /* 8. Reemplazo de "Customer:" por "Cliente:" */
@@ -132,6 +142,7 @@ html, body, #ICContainer {
 .ic_link_chatcontent:hover {
   text-decoration: none !important;
 }
+
 
 
 
