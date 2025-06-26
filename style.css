@@ -121,6 +121,44 @@ html, body {
   color: #0060C7 !important;
   font-weight: bold !important;
   font-size: 13px !important;
+}/* Fuerza un layout de tabla fijo y elimina márgenes internos extra */
+.ic_text_chattable {
+  table-layout: fixed !important;
+  width: 100% !important;
+  border-spacing: 0 !important;
+  border-collapse: collapse !important;
 }
+
+/* Alinea siempre los contenidos de las celdas arriba */
+.ic_text_chattable td {
+  vertical-align: top !important;
+  padding: 2px 8px !important;    /* Ajusta el padding a tu gusto */
+}
+
+/* Ajusta el ancho de la columna de etiquetas (Cliente/Gabriel) */
+.ic_text_chattable .ic_text_chattable_td1 {
+  width: 80px !important;         /* O el ancho que necesites */
+}
+
+/* Y el de la columna de mensaje al resto */
+.ic_text_chattable .ic_text_chattable_td2 {
+  width: auto !important;
+}
+
+/* Para el caso específico de 'Cliente' */
+.ic_text_chattable_td2_client {
+  /* conservamos tu reemplazo de texto */
+  color: transparent !important;
+  position: relative;
+}
+.ic_text_chattable_td2_client:before {
+  content: 'Cliente:' !important;
+  position: absolute;
+  left: 0;
+  color: #0060C7 !important;
+  font-weight: bold !important;
+  font-size: 13px !important;
+}
+
 
 
