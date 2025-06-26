@@ -34,12 +34,42 @@
     left: 20px !important;
     width: 350px !important;
     height: 454px !important;
+    background-image: url('/InstantChat/Standard/Images/ic_background.jpg') !important;
 }
 
 /* MediaMarkt overrides */
 .ic-window {
   font-family: 'Open Sans', sans-serif !important;
 }
+.ic-window .ic-header {
+  background-color: #D9222A !important;
+  color: #ffffff !important;
+  padding: 8px !important;
+}
+.ic-window .ic-header-title {
+  font-size: 16px !important;
+  margin: 0 !important;
+}
+.ic-window .ic-button,
+.ic-window .ic-status-button,
+.ic-window .ic-send-button {
+  background-color: #D9222A !important;
+  border: 1px solid #AA1A1F !important;
+  color: #ffffff !important;
+  padding: 6px 12px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+}
+.ic-window .ic-body {
+  background: linear-gradient(to bottom, #e0e4e9, #f5f9fc) !important;
+  padding: 10px !important;
+  overflow: auto !important;
+}
+
+.ic_htmlbody {
+  border: 10px solid #D9222A !important;
+}
+
 .ic-window .ic-header {
   background-color: #D9222A !important;
   color: #ffffff !important;
@@ -80,6 +110,12 @@
   display: none !important;
 }
 
+/* Borde rojo completo alrededor de la ventana */
+.ic-window {
+  box-sizing: border-box !important;
+  border: 10px solid #D9222A !important;
+}
+
 /* Asegurar contenedor completo */
 html, body {
   margin: 0 !important;
@@ -102,12 +138,17 @@ html, body {
 }
 
 /* Cambiar etiqueta 'Customer' a 'Cliente' */
-.ic_text_chattable_td2_client:before {
-  content: 'Cliente: ' !important;
-}
 .ic_text_chattable_td2_client {
-  font-weight: bold !important;
-  color: #0060C7 !important;
+  /* Oculta el texto original 'Customer' */
+  color: transparent !important;
+  position: relative;
 }
-
+.ic_text_chattable_td2_client:before {
+  content: 'Cliente:' !important;
+  position: absolute;
+  left: 0;
+  color: #0060C7 !important;
+  font-weight: bold !important;
+  font-size: 13px !important !important;
+}
 
