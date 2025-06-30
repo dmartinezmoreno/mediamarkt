@@ -142,7 +142,30 @@ html, body, #ICContainer {
 .ic_link_chatcontent:hover {
   text-decoration: none !important;
 }
+/* 10. Renombrar “Customer” → “Cliente” en modo ventana completa */
+.ic-window .ic-chatlog tr {
+  table-layout: fixed; /* aseguramos anchuras estables */
+}
 
+/* 10.1 Oculta el texto original en la columna del nombre (2ª) */
+.ic-window .ic-chatlog tr td:nth-child(2) {
+  visibility: hidden !important;
+  /* Reservamos un ancho razonable para “Cliente:” */
+  width: 75px !important;
+  padding: 2px 4px !important;
+  box-sizing: border-box !important;
+}
+
+/* 10.2 Inyecta “Cliente:” dentro de esa misma celda */
+.ic-window .ic-chatlog tr td:nth-child(2):before {
+  content: 'Cliente:' !important;
+  visibility: visible !important;
+  display: block !important;
+  color: #0060C7 !important;
+  font-weight: bold !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+}
 
 
 
