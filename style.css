@@ -162,6 +162,14 @@ html, body, #ICContainer {
   min-width: 0 !important;
   word-break: break-word !important;
 }
-
+/* 10.5 Alinear también el TD del agente al mismo ancho */
+.ic_text_chattable_td2_tc {
+  display: inline-block !important;
+  width: 75px !important;        /* mismo ancho que Cliente: */
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+  /* restablece el color original (o pon el que quieras) */
+  color: #000 !important;
+}
 
 
