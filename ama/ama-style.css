@@ -1,202 +1,114 @@
-/* ===============================================================
-   AMA – Estilo oficial (clonado de tu diseño real)
-   Compatibilidad total con LogMeIn Rescue InstantChat
-   =============================================================== */
-
-/* ===========================
-      CONTENEDORES GENERALES
-   =========================== */
-.ic_htmlbody {
-    font-family: "Inter", Arial, sans-serif !important;
-    font-size: 14px !important;
-    background: #ffffff !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* zona interior del engine */
-.ic_bodyarea,
+/* ===============================
+   FUENTE Y CONTENEDOR GENERAL
+   =============================== */
 .ic_maincontentarea {
-    background: transparent !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    font-family: "Inter", Arial, sans-serif !important;
+    color: #333 !important;
 }
 
-/* sombra general */
-.ic_shadow {
-    background: transparent !important;
-    opacity: 0.35 !important;
-}
-
-/* ===========================
-      CABECERA AMA
-   =========================== */
-.ic-window {
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    background: #fff !important;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
-}
-
-.ic-window .ic-header {
-    background: #D7A500 !important;
-    color: #ffffff !important;
-    padding: 14px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-}
-
-.ic-window .ic-header-title {
-    font-size: 16px !important;
-    font-weight: 600 !important;
-}
-
-/* iconos del header */
-.ic-window .ic-header-logo,
-.ic-window .ic-brand-logo {
-    filter: brightness(0) invert(1) !important;
-}
-
-/* boton minimizar */
-.ic-window .ic-minimizebutton {
-    filter: brightness(0) invert(1) !important;
-    opacity: 0.9 !important;
-}
-
-/* boton cerrar */
-.ic-window .ic-closebutton {
-    filter: brightness(0) invert(1) !important;
-    opacity: 0.9 !important;
-}
-
-/* ===========================
-      BURBUJAS
-   =========================== */
-
+/* Contenedor interior del chat */
 .ic_chatlog {
-    padding: 10px 12px !important;
+    padding: 16px !important;
+    background: #F9FAFB !important;
     overflow-y: auto !important;
-    background: #FAFBFC !important;
+    height: calc(100% - 120px) !important;
+    box-sizing: border-box !important;
+    border-bottom: 1px solid #E1E5EA !important;
 }
 
-/* mensaje recibido (ChatBot, agente) */
+/* ===============================
+   ESTILO DE LOS MENSAJES
+   =============================== */
+
+/* Línea general */
 .ic_text_chatline {
     margin-bottom: 12px !important;
-}
-
-/* contenedor de la burbuja */
-.ic_text_chattable {
     display: block !important;
-    max-width: 90% !important;
 }
 
-/* BURBUJAS AZULES (MENSAJES RECIBIDOS) */
-.ic_text_chatcontent,
-.ic_text_chattable_td2_tc {
-    background: #EFF4FB !important;
-    padding: 12px !important;
+/* BURBUJA DEL TÉCNICO */
+.ic_text_chatline_tc .ic_text_chatcontent {
+    background: #EFF4FF !important;
+    color: #1F327A !important;
+    padding: 12px 14px !important;
     border-radius: 10px !important;
     display: inline-block !important;
     line-height: 1.4 !important;
-    color: #2E3A59 !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    max-width: 85% !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
 }
 
-/* nombre del agente o ChatBot */
-.ic_text_chattable_td2_tc b {
-    color: #1F2D5A !important;
-    font-weight: 600 !important;
-}
-
-/* horario */
-.ic_control_chattime {
-    margin-top: 4px !important;
-    font-size: 12px !important;
-    opacity: 0.6 !important;
-}
-
-/* ===========================
-      BURBUJA PROPIA (EL CLIENTE)
-   =========================== */
-
-.ic_text_chattable_td2_client + .ic_text_chatcontent {
-    background: #E8E8E8 !important;
+/* BURBUJA DEL CLIENTE */
+.ic_text_chatline_client .ic_text_chatcontent {
+    background: #EDEDED !important;
     color: #000 !important;
+    padding: 12px 14px !important;
     border-radius: 10px !important;
+    display: inline-block !important;
+    max-width: 85% !important;
+    line-height: 1.4 !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
 }
 
-/* ===========================
-      INPUT INFERIOR AMA
-   =========================== */
+/* Hora del mensaje */
+.ic_control_chattime {
+    font-size: 12px !important;
+    opacity: 0.55 !important;
+    margin-top: 4px !important;
+    display: block !important;
+}
 
-.ic_inputline {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
+
+/* ===============================
+   ZONA DE ESCRITURA (INPUT)
+   =============================== */
+.ic_chattext {
+    width: calc(100% - 70px) !important;
+    height: 55px !important;
+    border: 1px solid #CCD2D9 !important;
+    border-radius: 8px !important;
     padding: 10px !important;
-    border-top: 1px solid #DADFE5 !important;
-    background: #FFFFFF !important;
+    font-family: "Inter", Arial, sans-serif !important;
+    background: #F5F7FA !important;
+    resize: none !important;
+    outline: none !important;
+    margin: 12px !important;
+    box-sizing: border-box !important;
 }
 
-/* icono del clip */
-.ic_fileupload_button {
+/* Contenedor inferior */
+.ic_input_container,
+#ic_chattext {
+    background: #ffffff !important;
+}
+
+/* BOTÓN ENVIAR */
+.ic_send_button {
     width: 40px !important;
     height: 40px !important;
-    border-radius: 6px !important;
-    border: 1px solid #C7CCD6 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #FFFFFF !important;
-    cursor: pointer !important;
-}
-
-/* campo de texto */
-.ic_textbox {
-    flex: 1 !important;
-    border: 1px solid #C7CCD6 !important;
-    background: #F5F7FA !important;
-    border-radius: 6px !important;
-    padding: 10px !important;
-    font-size: 14px !important;
-    resize: none !important;
-}
-
-/* boton enviar */
-.ic_send-button {
     background: #D7A500 !important;
-    color: white !important;
-    border: none !important;
-    padding: 10px 16px !important;
-    border-radius: 6px !important;
-    cursor: pointer !important;
-    font-weight: 600 !important;
-    transition: 0.2s !important;
+    border-radius: 8px !important;
+    margin-top: -50px !important;
+    margin-right: 12px !important;
+    float: right !important;
+    background-size: 22px !important;
 }
 
-.ic_send-button:hover {
-    filter: brightness(0.9) !important;
+.ic_send_button:hover {
+    background: #b38a00 !important;
 }
 
-/* ===========================
-      OCULTAR ELEMENTOS RESCUE
-   =========================== */
-.ic_lang_container,
+/* ===============================
+   OCULTAR ELEMENTOS DE RESCUE
+   =============================== */
+.ic_windowtitle_container,
 .ic_custom_logo,
 .ic_custom_icon,
-.ic_windowtitle_container,
-.ic_windowtitle_content,
-.ic-lang_select,
-.ic-lang_select_arrowimg {
+.ic_statusicon_chat,
+.ic_technicianname,
+.ic_lang_select,
+.ic_lang_container {
     display: none !important;
-}
-
-/* ===========================
-      RESPONSIVE
-   =========================== */
-@media (max-width: 500px) {
-    .ic-window {
-        border-radius: 0 !important;
-    }
 }
