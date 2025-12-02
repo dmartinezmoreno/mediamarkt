@@ -1,79 +1,202 @@
-/* CSS SEGURO PARA LOGMEIN RESCUE – AMA */
+/* ===============================================================
+   AMA – Estilo oficial (clonado de tu diseño real)
+   Compatibilidad total con LogMeIn Rescue InstantChat
+   =============================================================== */
 
-/* 1. Base: cuerpo y ventana */
+/* ===========================
+      CONTENEDORES GENERALES
+   =========================== */
 .ic_htmlbody {
-    font-family: Arial, sans-serif !important;
-    background-color: #ffffff !important;
+    font-family: "Inter", Arial, sans-serif !important;
+    font-size: 14px !important;
+    background: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* Ventana principal del chat */
+/* zona interior del engine */
+.ic_bodyarea,
+.ic_maincontentarea {
+    background: transparent !important;
+}
+
+/* sombra general */
+.ic_shadow {
+    background: transparent !important;
+    opacity: 0.35 !important;
+}
+
+/* ===========================
+      CABECERA AMA
+   =========================== */
 .ic-window {
-    border: 1px solid #DCDCDC !important;
-    border-radius: 6px !important;
+    border-radius: 12px !important;
     overflow: hidden !important;
-    box-sizing: border-box !important;
+    background: #fff !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
 }
 
-/* 2. Cabecera AMA amarilla */
 .ic-window .ic-header {
-    background-color: #F3C623 !important;  /* amarillo AMA */
-    color: #000000 !important;
-    font-weight: bold !important;
-    padding: 10px !important;
+    background: #D7A500 !important;
+    color: #ffffff !important;
+    padding: 14px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
 }
 
 .ic-window .ic-header-title {
-    font-size: 15px !important;
-    margin: 0 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
 }
 
-/* 3. Cuerpo del chat */
-.ic-window .ic-body {
-    background: #FFFFFF !important;
+/* iconos del header */
+.ic-window .ic-header-logo,
+.ic-window .ic-brand-logo {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* boton minimizar */
+.ic-window .ic-minimizebutton {
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.9 !important;
+}
+
+/* boton cerrar */
+.ic-window .ic-closebutton {
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.9 !important;
+}
+
+/* ===========================
+      BURBUJAS
+   =========================== */
+
+.ic_chatlog {
+    padding: 10px 12px !important;
+    overflow-y: auto !important;
+    background: #FAFBFC !important;
+}
+
+/* mensaje recibido (ChatBot, agente) */
+.ic_text_chatline {
+    margin-bottom: 12px !important;
+}
+
+/* contenedor de la burbuja */
+.ic_text_chattable {
+    display: block !important;
+    max-width: 90% !important;
+}
+
+/* BURBUJAS AZULES (MENSAJES RECIBIDOS) */
+.ic_text_chatcontent,
+.ic_text_chattable_td2_tc {
+    background: #EFF4FB !important;
+    padding: 12px !important;
+    border-radius: 10px !important;
+    display: inline-block !important;
+    line-height: 1.4 !important;
+    color: #2E3A59 !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+/* nombre del agente o ChatBot */
+.ic_text_chattable_td2_tc b {
+    color: #1F2D5A !important;
+    font-weight: 600 !important;
+}
+
+/* horario */
+.ic_control_chattime {
+    margin-top: 4px !important;
+    font-size: 12px !important;
+    opacity: 0.6 !important;
+}
+
+/* ===========================
+      BURBUJA PROPIA (EL CLIENTE)
+   =========================== */
+
+.ic_text_chattable_td2_client + .ic_text_chatcontent {
+    background: #E8E8E8 !important;
+    color: #000 !important;
+    border-radius: 10px !important;
+}
+
+/* ===========================
+      INPUT INFERIOR AMA
+   =========================== */
+
+.ic_inputline {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
     padding: 10px !important;
-    box-sizing: border-box !important;
+    border-top: 1px solid #DADFE5 !important;
+    background: #FFFFFF !important;
 }
 
-/* 4. Botones estilo AMA */
-.ic-window .ic-button,
-.ic-window .ic-status-button,
-.ic-window .ic-send-button {
-    background-color: #1E3A8A !important;   /* azul oscuro */
-    color: #ffffff !important;
-    border-radius: 4px !important;
-    padding: 6px 10px !important;
-    border: none !important;
+/* icono del clip */
+.ic_fileupload_button {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 6px !important;
+    border: 1px solid #C7CCD6 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #FFFFFF !important;
     cursor: pointer !important;
 }
 
-/* 5. Ocultar elementos que no queremos mostrar (logos, título ventana, idiomas, etc.) */
+/* campo de texto */
+.ic_textbox {
+    flex: 1 !important;
+    border: 1px solid #C7CCD6 !important;
+    background: #F5F7FA !important;
+    border-radius: 6px !important;
+    padding: 10px !important;
+    font-size: 14px !important;
+    resize: none !important;
+}
+
+/* boton enviar */
+.ic_send-button {
+    background: #D7A500 !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 16px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    transition: 0.2s !important;
+}
+
+.ic_send-button:hover {
+    filter: brightness(0.9) !important;
+}
+
+/* ===========================
+      OCULTAR ELEMENTOS RESCUE
+   =========================== */
 .ic_lang_container,
-.ic_windowtitle_container,
-.ic_windowtitle_main,
-.ic_windowtitle_content,
-.ic_custom_icon,
 .ic_custom_logo,
-.ic-lang_select_arrowimg,
-.ic_lang_select,
-.ic-window .ic-logo,
-.ic-window .ic-header-logo,
-.ic-window .ic-brand-logo {
+.ic_custom_icon,
+.ic_windowtitle_container,
+.ic_windowtitle_content,
+.ic-lang_select,
+.ic-lang_select_arrowimg {
     display: none !important;
 }
 
-/* 6. Fondo y área de mensajes */
-.ic_bodyarea,
-.ic_chatlog {
-    background-color: #ffffff !important;
+/* ===========================
+      RESPONSIVE
+   =========================== */
+@media (max-width: 500px) {
+    .ic-window {
+        border-radius: 0 !important;
+    }
 }
-
-/* 7. Evitar que mensajes largos rompan el layout */
-.ic_text_chatcontent {
-    word-break: break-word !important;
-}
-
-/* 8. Pequeño ajuste visual del log de chat */
-.ic_chatlog {
-    padding-top: 8px !important;
-}
-
