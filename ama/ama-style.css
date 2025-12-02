@@ -1,62 +1,79 @@
 /* CSS SEGURO PARA LOGMEIN RESCUE – AMA */
 
-/* Fuente base */
+/* 1. Base: cuerpo y ventana */
 .ic_htmlbody {
     font-family: Arial, sans-serif !important;
     background-color: #ffffff !important;
 }
 
-/* Contenedor principal del chat */
+/* Ventana principal del chat */
 .ic-window {
     border: 1px solid #DCDCDC !important;
     border-radius: 6px !important;
     overflow: hidden !important;
+    box-sizing: border-box !important;
 }
 
-/* Cabecera AMA amarillo */
+/* 2. Cabecera AMA amarilla */
 .ic-window .ic-header {
-    background-color: #F3C623 !important;
+    background-color: #F3C623 !important;  /* amarillo AMA */
     color: #000000 !important;
     font-weight: bold !important;
     padding: 10px !important;
 }
 
-/* Título */
 .ic-window .ic-header-title {
     font-size: 15px !important;
+    margin: 0 !important;
 }
 
-/* Fondo del chat */
+/* 3. Cuerpo del chat */
 .ic-window .ic-body {
     background: #FFFFFF !important;
     padding: 10px !important;
+    box-sizing: border-box !important;
 }
 
-/* Botones estilo AMA */
+/* 4. Botones estilo AMA */
 .ic-window .ic-button,
 .ic-window .ic-status-button,
 .ic-window .ic-send-button {
-    background-color: #1E3A8A !important;
-    color: white !important;
+    background-color: #1E3A8A !important;   /* azul oscuro */
+    color: #ffffff !important;
     border-radius: 4px !important;
     padding: 6px 10px !important;
     border: none !important;
     cursor: pointer !important;
 }
 
-/* Fondo de mensajes */
-.ic_chatlog,
-.ic_bodyarea {
-    background: white !important;
-}
-
-/* Selector de idioma */
+/* 5. Ocultar elementos que no queremos mostrar (logos, título ventana, idiomas, etc.) */
+.ic_lang_container,
+.ic_windowtitle_container,
+.ic_windowtitle_main,
+.ic_windowtitle_content,
+.ic_custom_icon,
+.ic_custom_logo,
 .ic-lang_select_arrowimg,
-.ic-lang_select {
-    display: block !important;
+.ic_lang_select,
+.ic-window .ic-logo,
+.ic-window .ic-header-logo,
+.ic-window .ic-brand-logo {
+    display: none !important;
 }
 
-/* Evitar desbordamientos */
+/* 6. Fondo y área de mensajes */
+.ic_bodyarea,
+.ic_chatlog {
+    background-color: #ffffff !important;
+}
+
+/* 7. Evitar que mensajes largos rompan el layout */
 .ic_text_chatcontent {
     word-break: break-word !important;
 }
+
+/* 8. Pequeño ajuste visual del log de chat */
+.ic_chatlog {
+    padding-top: 8px !important;
+}
+
