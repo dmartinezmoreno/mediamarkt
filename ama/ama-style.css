@@ -1,0 +1,62 @@
+/* CSS SEGURO PARA LOGMEIN RESCUE – AMA */
+
+/* Fuente base */
+.ic_htmlbody {
+    font-family: Arial, sans-serif !important;
+    background-color: #ffffff !important;
+}
+
+/* Contenedor principal del chat */
+.ic-window {
+    border: 1px solid #DCDCDC !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+
+/* Cabecera AMA amarillo */
+.ic-window .ic-header {
+    background-color: #F3C623 !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+    padding: 10px !important;
+}
+
+/* Título */
+.ic-window .ic-header-title {
+    font-size: 15px !important;
+}
+
+/* Fondo del chat */
+.ic-window .ic-body {
+    background: #FFFFFF !important;
+    padding: 10px !important;
+}
+
+/* Botones estilo AMA */
+.ic-window .ic-button,
+.ic-window .ic-status-button,
+.ic-window .ic-send-button {
+    background-color: #1E3A8A !important;
+    color: white !important;
+    border-radius: 4px !important;
+    padding: 6px 10px !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+/* Fondo de mensajes */
+.ic_chatlog,
+.ic_bodyarea {
+    background: white !important;
+}
+
+/* Selector de idioma */
+.ic-lang_select_arrowimg,
+.ic-lang_select {
+    display: block !important;
+}
+
+/* Evitar desbordamientos */
+.ic_text_chatcontent {
+    word-break: break-word !important;
+}
