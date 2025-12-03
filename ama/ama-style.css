@@ -1,7 +1,6 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE2
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
    ========================================================================= */
-
 #ic_bodyarea {
     display: none !important;
 }
@@ -12,37 +11,36 @@
     position: absolute !important;
     width: 100% !important;
     height: 100% !important;
-    background: #ffffff !important;
+    background: #fff !important;
     overflow: hidden !important;
 
+    display: flex !important;
+    flex-direction: column !important;
+
     font-family: "Inter", Arial, sans-serif !important;
-    box-sizing: border-box !important;
 }
 
 #ic_maincontentarea * {
     font-family: inherit !important;
-    box-sizing: border-box !important;
 }
 
 /* =========================================================================
-   SCROLL REAL DEL CHAT
+   SCROLL REAL DEL CHAT — deja espacio para textarea + botón
    ========================================================================= */
-
 #ic_chatlog {
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    max-height: calc(100% - 130px) !important;
-    min-height: 0 !important;
+    flex: 1 1 auto !important;
 
     padding: 18px !important;
-    padding-bottom: 40px !important;
+    padding-bottom: 90px !important; /* espacio para input */
     background: #ffffff !important;
+    box-sizing: border-box !important;
 }
 
 /* =========================================================================
    BURBUJAS DE MENSAJES
    ========================================================================= */
-
 .ic_text_chatline {
     margin-bottom: 14px !important;
     display: flex !important;
@@ -74,15 +72,13 @@
 }
 
 /* =========================================================================
-   HORA MÁS PEQUEÑA Y ALINEACIÓN
+   HORA — más pequeña y alineada a la derecha para el cliente
    ========================================================================= */
-
 .ic_text_chattable_td1 {
     font-size: 13px !important;
     color: #9a9a9a !important;
 }
 
-/* Hora del cliente alineada a la derecha */
 .ic_text_chatline_client .ic_text_chattable_td1 {
     text-align: right !important;
     display: block !important;
@@ -92,7 +88,6 @@
 /* =========================================================================
    OCULTAR “Cliente:” y “Técnico:”
    ========================================================================= */
-
 .ic_text_chattable_td2_client,
 .ic_text_chattable_td2_tc,
 .ic_control_chatname {
@@ -102,7 +97,6 @@
 /* =========================================================================
    MENSAJES DEL SISTEMA (Conectando…)
    ========================================================================= */
-
 .ic_control_chatline,
 .ic_text_system,
 .ic_text_chatline_system,
@@ -115,121 +109,8 @@
 }
 
 /* =========================================================================
-   ENLACES (Descargar applet, Haga clic aquí)
+   ENLACES (Descargar applet, etc.)
    ========================================================================= */
-
 .ic_link_chatcontent,
 .ic_linkhover_chatcontent {
-    color: #0066cc !important;
-    cursor: pointer !important;
-    text-decoration: underline !important;
-}
-
-/* =========================================================================
-   INPUT DE MENSAJES — ESTILOS BASE
-   ========================================================================= */
-
-.ic_chattext,
-.ic_chattext_first {
-    position: static !important;
-
-    /* ancho pensado para dejar hueco al botón */
-    width: calc(100% - 70px) !important;
-    height: 48px !important;
-    resize: none !important;
-
-    background: #f7f9fb !important;
-    border-radius: 8px !important;
-    border: 1px solid #cfd3d8 !important;
-    padding: 10px !important;
-    font-size: 14px !important;
-    box-sizing: border-box !important;
-
-    display: inline-block !important;
-    vertical-align: middle !important;
-    margin: 0 !important;
-    margin-left: 16px !important;
-    margin-bottom: 10px !important;
-}
-
-/* =========================================================================
-   BOTÓN ENVIAR (AMARILLO) ALINEADO
-   ========================================================================= */
-
-.ic_send_button,
-.ic_send_button_disabled {
-    display: inline-flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    vertical-align: middle !important;
-
-    width: 48px !important;
-    height: 48px !important;
-    border-radius: 10px !important;
-    margin-left: 8px !important;
-    margin-bottom: 10px !important;
-}
-
-.ic_send_button {
-    background: #d7a500 !important;
-}
-
-.ic_send_button:hover {
-    background: #b38a00 !important;
-}
-
-.ic_send_button_disabled {
-    background: #e2c24a !important;
-}
-
-/* Icono flecha dentro del botón */
-.ic_send_button::after {
-    content: "➜";
-    font-size: 20px;
-    color: white;
-    font-weight: bold;
-}
-
-/* Deshabilitado: aspecto apagado y sin clicks */
-.ic_send_button_disabled {
-    opacity: 0.4 !important;
-    pointer-events: none !important;
-}
-
-.ic_send_button {
-    pointer-events: auto !important;
-}
-
-/* =========================================================================
-   OCULTAR COSAS QUE NO QUEREMOS
-   ========================================================================= */
-
-.ic_windowtitle_container,
-.ic_custom_logo,
-.ic_custom_icon,
-.ic_statusicon_chat,
-.ic_lang_select,
-.ic_lang_container {
-    display: none !important;
-}
-
-/* =========================================================================
-   BLOQUEAR INPUT HASTA QUE EL TÉCNICO SE CONECTA
-   (usa :has, soportado en navegadores modernos)
-   ========================================================================= */
-
-/* Por defecto: ocultar textarea y botón */
-#ic_chattext,
-#ic_send_button {
-    display: none !important;
-}
-
-/* Cuando aparece la línea TC_CONNECTED, mostrar textarea + botón
-   (y respetan los estilos de arriba: inline-block / inline-flex) */
-#ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_chattext {
-    display: inline-block !important;
-}
-
-#ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_send_button {
-    display: inline-flex !important;
-}
+    color: #0066cc !impo
