@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE5
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -207,3 +207,29 @@
 .ic_lang_container {
     display: none !important;
 }
+
+
+/* --- FORZAR QUE EL BOTÓN SEA CLICABLE, AUNQUE ESTÉ "DISABLED" --- */
+.ic_send_button_disabled {
+    background: #d7a500 !important;  /* mismo color que el activo */
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* --- Asegurar que textarea y botón estén por encima de overlays --- */
+#ic_chattext,
+#ic_send_button {
+    z-index: 100 !important;
+}
+
+#ic_progressbars,
+#ic_progressbars_chatbottom {
+    pointer-events: none !important;
+}
+/* --- Hora del cliente totalmente alineada a la derecha --- */
+.ic_text_chatline_client table.ic_text_chattable td.ic_text_chattable_td1 {
+    text-align: right !important;
+    display: block !important;
+    width: 100% !important;
+}
+
