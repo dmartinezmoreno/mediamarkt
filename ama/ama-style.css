@@ -14,6 +14,12 @@
     height: 100% !important;
     background: #fff !important;
     overflow: hidden !important;
+
+    font-family: "Inter", Arial, sans-serif !important;
+}
+
+#ic_maincontentarea * {
+    font-family: inherit !important;
 }
 
 /* =========================================================================
@@ -42,8 +48,7 @@
     flex-direction: column !important;
 }
 
-/* ========== Técnico (izquierda) ========== */
-
+/* Técnico izquierda */
 .ic_text_chatline_tc .ic_text_chatcontent {
     background: #e8f0ff !important;
     color: #1d2c6b !important;
@@ -55,8 +60,7 @@
     box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
 }
 
-/* ========== Cliente (derecha) ========== */
-
+/* Cliente derecha */
 .ic_text_chatline_client .ic_text_chatcontent {
     background: #efefef !important;
     color: #333 !important;
@@ -68,7 +72,7 @@
     box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
 }
 
-/* Alinear hora a la derecha en mensajes del cliente */
+/* Hora del cliente alineada a la derecha */
 .ic_text_chatline_client .ic_text_chattable_td1 {
     text-align: right !important;
     display: block !important;
@@ -112,13 +116,15 @@
 }
 
 /* =========================================================================
-   INPUT DE MENSAJES — RESPETAR LAYOUT DE RESCUE
+   INPUT DE MENSAJES — EN LÍNEA CON EL BOTÓN
    ========================================================================= */
 
 .ic_chattext,
 .ic_chattext_first {
-    position: static !important;   /* IMPORTANTE */
-    width: 100% !important;
+    position: static !important;
+    display: inline-block !important;
+
+    width: calc(100% - 70px) !important;   /* deja hueco al botón */
     height: 48px !important;
     resize: none !important;
 
@@ -128,20 +134,28 @@
     padding: 10px !important;
     font-size: 14px !important;
     box-sizing: border-box !important;
+    vertical-align: middle !important;
 }
 
 /* =========================================================================
-   BOTÓN ENVIAR (AMARILLO)
+   BOTÓN ENVIAR (AMARILLO) ALINEADO
    ========================================================================= */
 
-.ic_send_button {
-    background: #d7a500 !important;
+.ic_send_button,
+.ic_send_button_disabled {
+    display: inline-block !important;
     width: 48px !important;
     height: 48px !important;
     border-radius: 10px !important;
-    display: inline-flex !important;
+    margin-left: 8px !important;
+
     justify-content: center !important;
     align-items: center !important;
+    vertical-align: middle !important;
+}
+
+.ic_send_button {
+    background: #d7a500 !important;
 }
 
 .ic_send_button:hover {
