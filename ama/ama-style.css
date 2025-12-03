@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE2
    ========================================================================= */
 
 #ic_bodyarea {
@@ -12,18 +12,16 @@
     position: absolute !important;
     width: 100% !important;
     height: 100% !important;
-
-    background: #fff !important;
-
-    display: flex !important;
-    flex-direction: column !important;
+    background: #ffffff !important;
     overflow: hidden !important;
 
     font-family: "Inter", Arial, sans-serif !important;
+    box-sizing: border-box !important;
 }
 
 #ic_maincontentarea * {
     font-family: inherit !important;
+    box-sizing: border-box !important;
 }
 
 /* =========================================================================
@@ -31,14 +29,14 @@
    ========================================================================= */
 
 #ic_chatlog {
-    flex: 1 1 auto !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    max-height: calc(100% - 130px) !important;
+    min-height: 0 !important;
 
     padding: 18px !important;
     padding-bottom: 40px !important;
     background: #ffffff !important;
-    box-sizing: border-box !important;
 }
 
 /* =========================================================================
@@ -51,38 +49,32 @@
     flex-direction: column !important;
 }
 
-/* Técnico (izquierda) */
+/* Técnico izquierda */
 .ic_text_chatline_tc .ic_text_chatcontent {
     background: #e8f0ff !important;
     color: #1d2c6b !important;
-
     padding: 10px 14px !important;
     border-radius: 12px !important;
-
     align-self: flex-start !important;
     max-width: 70% !important;
-
     overflow-wrap: break-word !important;
     box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
 }
 
-/* Cliente (derecha) */
+/* Cliente derecha */
 .ic_text_chatline_client .ic_text_chatcontent {
     background: #efefef !important;
     color: #333 !important;
-
     padding: 10px 14px !important;
     border-radius: 12px !important;
-
     align-self: flex-end !important;
     max-width: 70% !important;
-
     overflow-wrap: break-word !important;
     box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
 }
 
 /* =========================================================================
-   HORA PEQUEÑA + ALINEACIÓN
+   HORA MÁS PEQUEÑA Y ALINEACIÓN
    ========================================================================= */
 
 .ic_text_chattable_td1 {
@@ -90,11 +82,7 @@
     color: #9a9a9a !important;
 }
 
-/* La tabla que contiene la hora debe ocupar todo el ancho */
-.ic_text_chatline_client .ic_text_chattable {
-    width: 100% !important;
-}
-
+/* Hora del cliente alineada a la derecha */
 .ic_text_chatline_client .ic_text_chattable_td1 {
     text-align: right !important;
     display: block !important;
@@ -112,7 +100,7 @@
 }
 
 /* =========================================================================
-   MENSAJES DEL SISTEMA
+   MENSAJES DEL SISTEMA (Conectando…)
    ========================================================================= */
 
 .ic_control_chatline,
@@ -121,14 +109,13 @@
 .ic_text_chatline .ic_text_system {
     color: #777 !important;
     font-size: 13px !important;
-
     background: none !important;
     margin: 6px 0 !important;
     padding: 3px 0 !important;
 }
 
 /* =========================================================================
-   ENLACES — Descargar applet, etc.
+   ENLACES (Descargar applet, Haga clic aquí)
    ========================================================================= */
 
 .ic_link_chatcontent,
@@ -139,70 +126,78 @@
 }
 
 /* =========================================================================
-   FOOTER PROFESIONAL — Textarea + botón enviar
+   INPUT DE MENSAJES — ESTILOS BASE
    ========================================================================= */
 
-#ic_complementer {
-    display: none !important;
-}
-
-/* Textarea */
 .ic_chattext,
 .ic_chattext_first {
-    flex-shrink: 0 !important;
+    position: static !important;
 
-    width: calc(100% - 60px) !important;
+    /* ancho pensado para dejar hueco al botón */
+    width: calc(100% - 70px) !important;
     height: 48px !important;
+    resize: none !important;
 
     background: #f7f9fb !important;
     border-radius: 8px !important;
     border: 1px solid #cfd3d8 !important;
-
     padding: 10px !important;
     font-size: 14px !important;
     box-sizing: border-box !important;
 
-    resize: none !important;
-
     display: inline-block !important;
     vertical-align: middle !important;
+    margin: 0 !important;
+    margin-left: 16px !important;
+    margin-bottom: 10px !important;
 }
 
-/* Botón enviar */
-#ic_send_button,
-.ic_send_button {
-    width: 48px !important;
-    height: 48px !important;
+/* =========================================================================
+   BOTÓN ENVIAR (AMARILLO) ALINEADO
+   ========================================================================= */
 
-    background: #d7a500 !important;
-    border-radius: 10px !important;
-
+.ic_send_button,
+.ic_send_button_disabled {
     display: inline-flex !important;
     justify-content: center !important;
     align-items: center !important;
-
     vertical-align: middle !important;
+
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 10px !important;
     margin-left: 8px !important;
-
-    cursor: pointer !important;
+    margin-bottom: 10px !important;
 }
 
-/* Icono enviar */
-#ic_send_button::after {
-    content: "➜";
-    font-size: 20px !important;
-    font-weight: bold !important;
-    color: white !important;
+.ic_send_button {
+    background: #d7a500 !important;
 }
 
-#ic_send_button:hover {
+.ic_send_button:hover {
     background: #b38a00 !important;
 }
 
 .ic_send_button_disabled {
     background: #e2c24a !important;
-    opacity: 0.5 !important;
+}
+
+/* Icono flecha dentro del botón */
+.ic_send_button::after {
+    content: "➜";
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Deshabilitado: aspecto apagado y sin clicks */
+.ic_send_button_disabled {
+    opacity: 0.4 !important;
     pointer-events: none !important;
+}
+
+.ic_send_button {
+    pointer-events: auto !important;
 }
 
 /* =========================================================================
@@ -218,25 +213,23 @@
     display: none !important;
 }
 
+/* =========================================================================
+   BLOQUEAR INPUT HASTA QUE EL TÉCNICO SE CONECTA
+   (usa :has, soportado en navegadores modernos)
+   ========================================================================= */
 
-/* === FORZAR TEXTAREA + BOTÓN EN LA MISMA LÍNEA ======================== */
-
-/* Textarea: ocupa casi todo el ancho, dejando hueco al botón */
-#ic_chattext {
-    display: inline-block !important;
-    width: calc(100% - 70px) !important;
-    height: 48px !important;
-    box-sizing: border-box !important;
-    vertical-align: middle !important;
+/* Por defecto: ocultar textarea y botón */
+#ic_chattext,
+#ic_send_button {
+    display: none !important;
 }
 
-/* Botón enviar: al lado del textarea */
-#ic_send_button,
-#ic_send_button_disabled {
+/* Cuando aparece la línea TC_CONNECTED, mostrar textarea + botón
+   (y respetan los estilos de arriba: inline-block / inline-flex) */
+#ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_chattext {
     display: inline-block !important;
-    width: 48px !important;
-    height: 48px !important;
-    margin-left: 8px !important;
-    vertical-align: middle !important;
 }
 
+#ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_send_button {
+    display: inline-flex !important;
+}
