@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE2
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -189,7 +189,6 @@
 
 /* =========================================================================
    MOSTRAR INPUT + BOTÓN SOLO CUANDO EL TÉCNICO SE CONECTA
-   (usa :has, soportado en Chrome/Edge modernos)
    ========================================================================= */
 #ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_chattext,
 #ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_send_button {
@@ -212,13 +211,12 @@
    BOTÓN ENVIAR: ASEGURAR QUE RECIBE EL CLICK
 ------------------------------------------------------------------------- */
 
-/* El botón activo */
+/* El botón activo: SOLO arreglamos clic y capa, no la posición */
 #ic_send_button,
 .ic_send_button {
     pointer-events: auto !important;
     cursor: pointer !important;
-    position: relative !important;
-    z-index: 20 !important;
+    z-index: 50 !important;
 }
 
 /* Que el dibujito de la flecha NO intercepte el clic */
@@ -231,14 +229,12 @@
 #ic_progressbars_chatbottom {
     pointer-events: none !important;
 }
-/* -------------------------------------------------------------------------
-   HORA DEL CLIENTE A LA DERECHA
-------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------
+   REFORZAR HORA DEL CLIENTE A LA DERECHA
+------------------------------------------------------------------------- */
 .ic_text_chatline_client table.ic_text_chattable td.ic_text_chattable_td1 {
     text-align: right !important;
     display: block !important;
     width: 100% !important;
-    font-size: 13px !important;
-    color: #9a9a9a !important;
 }
