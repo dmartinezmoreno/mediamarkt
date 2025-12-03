@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE5
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -14,9 +14,6 @@
     background: #fff !important;
     overflow: hidden !important;
 
-    display: flex !important;
-    flex-direction: column !important;
-
     font-family: "Inter", Arial, sans-serif !important;
 }
 
@@ -25,15 +22,17 @@
 }
 
 /* =========================================================================
-   SCROLL REAL DEL CHAT — deja espacio para textarea + botón
+   SCROLL REAL DEL CHAT
    ========================================================================= */
 #ic_chatlog {
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    flex: 1 1 auto !important;
+
+    max-height: calc(100% - 130px) !important;
+    min-height: 0 !important;
 
     padding: 18px !important;
-    padding-bottom: 90px !important; /* espacio para input */
+    padding-bottom: 90px !important; /* deja espacio para el input */
     background: #ffffff !important;
     box-sizing: border-box !important;
 }
@@ -72,7 +71,7 @@
 }
 
 /* =========================================================================
-   HORA — más pequeña y alineada a la derecha para el cliente
+   HORA MÁS PEQUEÑA Y ALINEACIÓN
    ========================================================================= */
 .ic_text_chattable_td1 {
     font-size: 13px !important;
@@ -109,8 +108,102 @@
 }
 
 /* =========================================================================
-   ENLACES (Descargar applet, etc.)
+   ENLACES (Descargar applet, Haga clic aquí)
    ========================================================================= */
 .ic_link_chatcontent,
 .ic_linkhover_chatcontent {
-    color: #0066cc !impo
+    color: #0066cc !important;
+    cursor: pointer !important;
+    text-decoration: underline !important;
+}
+
+/* =========================================================================
+   INPUT DE MENSAJES — ABAJO Y EN LA MISMA LÍNEA
+   ========================================================================= */
+
+/* Apariencia general del textarea */
+#ic_chattext,
+.ic_chattext_first {
+    height: 48px !important;
+    resize: none !important;
+
+    background: #f7f9fb !important;
+    border-radius: 8px !important;
+    border: 1px solid #cfd3d8 !important;
+    padding: 10px !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+}
+
+/* Posición del textarea: pegado al fondo, dejando hueco al botón */
+#ic_chattext {
+    position: absolute !important;
+    left: 16px !important;
+    right: 80px !important;
+    bottom: 16px !important;
+    margin: 0 !important;
+    display: none !important;  /* se mostrará sólo cuando el técnico se conecte */
+}
+
+/* =========================================================================
+   BOTÓN ENVIAR (AMARILLO) ALINEADO AL TEXTAREA
+   ========================================================================= */
+.ic_send_button,
+.ic_send_button_disabled {
+    position: absolute !important;
+    bottom: 16px !important;
+    right: 16px !important;
+
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 10px !important;
+    margin: 0 !important;
+
+    display: none !important;  /* se mostrará sólo cuando el técnico se conecte */
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.ic_send_button {
+    background: #d7a500 !important;
+    cursor: pointer !important;
+}
+
+.ic_send_button:hover {
+    background: #b38a00 !important;
+}
+
+.ic_send_button_disabled {
+    background: #e2c24a !important;
+    opacity: 0.4 !important;
+    pointer-events: none !important;
+}
+
+/* Icono del botón enviar */
+.ic_send_button::after {
+    content: "➜";
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+/* =========================================================================
+   MOSTRAR INPUT + BOTÓN SOLO CUANDO EL TÉCNICO SE CONECTA
+   (usa :has, soportado en Chrome/Edge modernos)
+   ========================================================================= */
+#ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_chattext,
+#ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_send_button {
+    display: flex !important;
+}
+
+/* =========================================================================
+   OCULTAR ELEMENTOS QUE NO QUEREMOS VER
+   ========================================================================= */
+.ic_windowtitle_container,
+.ic_custom_logo,
+.ic_custom_icon,
+.ic_statusicon_chat,
+.ic_lang_select,
+.ic_lang_container {
+    display: none !important;
+}
