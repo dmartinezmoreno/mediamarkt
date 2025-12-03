@@ -210,19 +210,3 @@
     pointer-events: auto !important;
 }
 
-/* -------------------------------------------------------------------------
-   OCULTAR INPUT & BOTÓN HASTA QUE EL TÉCNICO SE CONECTA
-------------------------------------------------------------------------- */
-
-/* Ocultar input y botón por defecto */
-#ic_chattext,
-#ic_send_button {
-    display: none !important;
-}
-
-/* Mostrar input y botón SOLO cuando el técnico está conectado */
-.ic_state_tc_connected #ic_chattext,
-.ic_state_tc_connected #ic_send_button {
-    display: flex !important;
-}
-
