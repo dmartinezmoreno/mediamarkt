@@ -217,3 +217,26 @@
 .ic_lang_container {
     display: none !important;
 }
+
+
+/* === FORZAR TEXTAREA + BOTÓN EN LA MISMA LÍNEA ======================== */
+
+/* Textarea: ocupa casi todo el ancho, dejando hueco al botón */
+#ic_chattext {
+    display: inline-block !important;
+    width: calc(100% - 70px) !important;
+    height: 48px !important;
+    box-sizing: border-box !important;
+    vertical-align: middle !important;
+}
+
+/* Botón enviar: al lado del textarea */
+#ic_send_button,
+#ic_send_button_disabled {
+    display: inline-block !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin-left: 8px !important;
+    vertical-align: middle !important;
+}
+
