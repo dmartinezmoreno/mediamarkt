@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE9
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
    ========================================================================= */
 
 #ic_bodyarea {
@@ -12,6 +12,7 @@
     position: absolute !important;
     width: 100% !important;
     height: 100% !important;
+
     background: #fff !important;
 
     display: flex !important;
@@ -36,9 +37,8 @@
 
     padding: 18px !important;
     padding-bottom: 40px !important;
-    box-sizing: border-box !important;
-
     background: #ffffff !important;
+    box-sizing: border-box !important;
 }
 
 /* =========================================================================
@@ -82,12 +82,17 @@
 }
 
 /* =========================================================================
-   FECHA/HORA
+   HORA PEQUEÑA + ALINEACIÓN
    ========================================================================= */
 
 .ic_text_chattable_td1 {
     font-size: 13px !important;
     color: #9a9a9a !important;
+}
+
+/* La tabla que contiene la hora debe ocupar todo el ancho */
+.ic_text_chatline_client .ic_text_chattable {
+    width: 100% !important;
 }
 
 .ic_text_chatline_client .ic_text_chattable_td1 {
@@ -123,7 +128,7 @@
 }
 
 /* =========================================================================
-   ENLACES
+   ENLACES — Descargar applet, etc.
    ========================================================================= */
 
 .ic_link_chatcontent,
@@ -134,7 +139,7 @@
 }
 
 /* =========================================================================
-   FOOTER PROFESIONAL (WhatsApp/Teams)
+   FOOTER PROFESIONAL — Textarea + botón enviar
    ========================================================================= */
 
 #ic_complementer {
@@ -145,21 +150,22 @@
 .ic_chattext,
 .ic_chattext_first {
     flex-shrink: 0 !important;
+
+    width: calc(100% - 60px) !important;
     height: 48px !important;
-    padding: 10px !important;
 
     background: #f7f9fb !important;
     border-radius: 8px !important;
     border: 1px solid #cfd3d8 !important;
 
-    width: calc(100% - 60px) !important;
-    resize: none !important;
-
+    padding: 10px !important;
     font-size: 14px !important;
     box-sizing: border-box !important;
 
-    display: inline-flex !important;
-    align-items: center !important;
+    resize: none !important;
+
+    display: inline-block !important;
+    vertical-align: middle !important;
 }
 
 /* Botón enviar */
@@ -171,23 +177,25 @@
     background: #d7a500 !important;
     border-radius: 10px !important;
 
-    margin-left: 8px !important;
-
     display: inline-flex !important;
     justify-content: center !important;
     align-items: center !important;
 
+    vertical-align: middle !important;
+    margin-left: 8px !important;
+
     cursor: pointer !important;
 }
 
+/* Icono enviar */
 #ic_send_button::after {
     content: "➜";
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: white !important;
 }
 
-.ic_send_button:hover {
+#ic_send_button:hover {
     background: #b38a00 !important;
 }
 
@@ -198,7 +206,7 @@
 }
 
 /* =========================================================================
-   OCULTAR ELEMENTOS QUE NO QUEREMOS
+   OCULTAR COSAS QUE NO QUEREMOS
    ========================================================================= */
 
 .ic_windowtitle_container,
