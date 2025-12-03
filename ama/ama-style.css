@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE3
    ========================================================================= */
 
 #ic_bodyarea {
@@ -178,8 +178,22 @@
 .ic_lang_container {
     display: none !important;
 }
+/* -------------------------------------------------------------------------
+   HORA MÁS PEQUEÑA Y ALINEACIÓN
+------------------------------------------------------------------------- */
+.ic_text_chattable_td1 {
+    font-size: 11px !important;
+    color: #9a9a9a !important;
+}
 
-/* Icono interno del botón enviar */
+.ic_text_chatline_client .ic_text_chattable_td1 {
+    text-align: right !important;
+    display: block !important;
+}
+
+/* -------------------------------------------------------------------------
+   ICONO DEL BOTÓN ENVIAR
+------------------------------------------------------------------------- */
 .ic_send_button::after {
     content: "➜";
     font-size: 20px;
@@ -187,21 +201,19 @@
     font-weight: bold;
 }
 
-/* Hora más pequeña y gris */
-.ic_text_chattable_td1 {
-    font-size: 11px !important;
-    color: #9a9a9a !important;
-}
-
-/* Hora alineada a la derecha en mensajes del cliente */
-.ic_text_chatline_client .ic_text_chattable_td1 {
-    text-align: right !important;
-    display: block !important;
-}
 .ic_send_button_disabled {
     opacity: 0.4 !important;
     pointer-events: none !important;
 }
+
 .ic_send_button {
     pointer-events: auto !important;
+}
+
+/* -------------------------------------------------------------------------
+   OCULTAR INPUT & BOTÓN HASTA QUE EL TÉCNICO SE CONECTA
+------------------------------------------------------------------------- */
+:not(.ic_control_chatline_TC_CONNECTED) ~ #ic_chattext,
+:not(.ic_control_chatline_TC_CONNECTED) ~ #ic_send_button {
+    display: none !important;
 }
