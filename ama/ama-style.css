@@ -1,5 +1,5 @@
 /* ============================================================
-   CONTENEDOR PRINCIPAL (NO TOCAR POSICIONES DE RESCUE)
+   CONTENEDOR PRINCIPAL DEL CHAT
    ============================================================ */
 
 .ic_maincontentarea {
@@ -9,38 +9,24 @@
     display: flex !important;
     flex-direction: column !important;
     font-family: "Inter", Arial, sans-serif !important;
+    position: relative !important;  /* para posicionar input/botón */
     overflow: hidden !important;
 }
 
 /* ============================================================
-   CORRECCIÓN CRÍTICA: LAYOUT FLEX Y SCROLL
+   ÁREA DE MENSAJES CON SCROLL
    ============================================================ */
 
-.ic_chatwindow,
-.ic_chatpanel {
-    display: flex !important;
-    flex-direction: column !important;
+/* Log de mensajes: ocupa todo el alto disponible, con scroll,
+   dejando espacio inferior para el input (padding-bottom) */
+.ic_chatlog {
     flex: 1 1 auto !important;
     min-height: 0 !important;
+    padding: 18px !important;
+    padding-bottom: 100px !important; /* espacio para input+botón */
     background: #ffffff !important;
-    border: none !important;
-}
-
-.ic_chatlogwrapper {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    background: #ffffff !important;
-}
-
-/* ============================================================
-   LOG DE MENSAJES
-   ============================================================ */
-
-.ic_chatlog {
-    padding: 18px !important;
-    background: #ffffff !important;
 }
 
 .ic_text_chatline {
@@ -62,7 +48,7 @@
     display: none !important;
 }
 
-/* Mensajes del sistema */
+/* Mensajes de sistema */
 .ic_text_system,
 .ic_text_chatline_system,
 .ic_text_chatline .ic_text_system,
@@ -105,7 +91,7 @@
 }
 
 /* ============================================================
-   ENLACES DE RESCUE (Descargar applet, etc.)
+   ENLACES (Descargar applet, etc.)
    ============================================================ */
 
 .ic_link_chatcontent,
@@ -116,7 +102,6 @@
     cursor: pointer !important;
 }
 
-/* También permitir enlaces dentro de burbujas */
 .ic_text_chatcontent a,
 .ic_control_chatcontent a {
     color: #0066cc !important;
@@ -124,38 +109,49 @@
 }
 
 /* ============================================================
-   INPUT DE MENSAJE
+   INPUT DE MENSAJE FIJO ABAJO
    ============================================================ */
 
+/* Rescue usa ic_chattext_first primero y luego ic_chattext */
 .ic_chattext_first,
 .ic_chattext {
-    flex-grow: 1 !important;
+    position: absolute !important;
+    left: 18px !important;
+    right: 80px !important;         /* deja hueco al botón */
+    bottom: 18px !important;
+
     height: 48px !important;
     border-radius: 8px !important;
     border: 1px solid #cfd3d8 !important;
     padding: 10px !important;
-    resize: none !important;
     background: #f7f9fb !important;
     font-size: 14px !important;
+    resize: none !important;
 
-    width: calc(100% - 70px) !important;
     box-sizing: border-box !important;
-    display: inline-block !important;
+    z-index: 10 !important;
 }
 
 /* ============================================================
-   BOTÓN ENVIAR (AMARILLO)
+   BOTÓN ENVIAR (AMARILLO) ALINEADO
    ============================================================ */
 
 .ic_send_button,
 .ic_send_button_disabled {
+    position: absolute !important;
+    right: 18px !important;
+    bottom: 18px !important;
+
     width: 48px !important;
     height: 48px !important;
     border-radius: 10px !important;
-    margin-left: 8px !important;
-    display: inline-flex !important;
+
+    display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+
+    z-index: 11 !important;  /* por encima del textarea */
+    cursor: pointer !important;
 }
 
 .ic_send_button {
@@ -171,7 +167,7 @@
 }
 
 /* ============================================================
-   OCULTAR ELEMENTOS INNECESARIOS DE RESCUE
+   OCULTAR ELEMENTOS QUE SOBRAN
    ============================================================ */
 
 .ic_windowtitle_container,
