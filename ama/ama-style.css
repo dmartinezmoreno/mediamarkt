@@ -2,7 +2,6 @@
    RESET Y CONTENEDOR PRINCIPAL
    =============================== */
 
-/* Quitar fondos y cuadros amarillos del body interno de Rescue */
 .ic_htmlbody,
 .ic_bodyarea {
     background: transparent !important;
@@ -10,17 +9,14 @@
     padding: 0 !important;
 }
 
-/* El body amarillo y el loader no los queremos ver */
 #ic_bodyarea,
 #ic_shadow,
 #ic_loader_animation {
     display: none !important;
 }
 
-/* Contenedor principal del chat */
 .ic_maincontentarea {
     background: #ffffff !important;
-    /* Anular posiciones raras que pone el script (top:119px,left:8px, etc.) */
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
@@ -38,7 +34,6 @@
     padding: 0 !important;
 }
 
-/* Aseguramos box-sizing dentro del chat */
 .ic_maincontentarea *,
 .ic_maincontentarea *::before,
 .ic_maincontentarea *::after {
@@ -69,7 +64,6 @@
     display: none !important;
 }
 
-/* Texto de estado (opcional: puedes ocultarlo si no lo quieres) */
 .ic_statustext,
 .ic_statustext_hidden {
     display: none !important;
@@ -79,7 +73,6 @@
    ÁREA DE LOG (MENSAJES)
    =============================== */
 
-/* El “panel” del chat se comporta como columna flex */
 .ic_chatwindow,
 .ic_chatpanel {
     background: #ffffff !important;
@@ -90,7 +83,6 @@
     height: 100% !important;
 }
 
-/* Hacemos que el log ocupe todo el espacio disponible y tenga scroll */
 .ic_chatlog {
     flex: 1 1 auto !important;
     width: 100% !important;
@@ -108,15 +100,24 @@
     flex-direction: column !important;
 }
 
-/* Ocultar el nombre del hablante (“Cliente:”, “Técnico:”) */
+/* Tabla de hora + nombre */
+.ic_text_chattable {
+    border-collapse: collapse !important;
+    margin-bottom: 2px !important;
+}
+
+/* Hora */
+.ic_text_chattable_td1 {
+    font-size: 11px !important;
+    opacity: 0.5 !important;
+    padding-right: 6px !important;
+    white-space: nowrap !important;
+}
+
+/* Ocultar SOLO “Cliente:” y “Técnico:” */
 .ic_text_chattable_td2_client,
 .ic_text_chattable_td2_tc,
 .ic_control_chatname {
-    display: none !important;
-}
-
-/* Ocultar la tabla que mete la hora + nombre y dejar solo la “burbuja” */
-.ic_text_chattable {
     display: none !important;
 }
 
@@ -149,7 +150,7 @@
 }
 
 /* ===============================
-   MENSAJES DEL SISTEMA (Conectando…)
+   MENSAJES DEL SISTEMA
    =============================== */
 
 .ic_control_chatline,
@@ -163,7 +164,7 @@
     margin: 6px 0 !important;
 }
 
-/* HORA: en gris y pequeña al pie de cada mensaje (si Rescue la mete aparte) */
+/* Hora genérica (por si la usan en otros sitios) */
 .ic_control_chattime {
     font-size: 11px !important;
     opacity: 0.5 !important;
@@ -171,19 +172,33 @@
 }
 
 /* ===============================
-   INPUT DE MENSAJE (PARTE INFERIOR)
+   ENLACES EN EL CHAT
    =============================== */
 
-/* Colocamos textarea + botón como fila en la parte de abajo */
+/* Para que “Descargar applet” parezca claramente clicable */
+.ic_chatlog a {
+    color: #1d2c6b !important;
+    text-decoration: underline !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+}
+
+.ic_chatlog a:hover {
+    opacity: 0.8 !important;
+}
+
+/* ===============================
+   INPUT DE MENSAJE
+   =============================== */
+
 .ic_chattext,
 .ic_send_button {
     display: inline-block !important;
     vertical-align: middle !important;
 }
 
-/* Separación del log de mensajes */
 .ic_chattext {
-    width: calc(100% - 64px) !important; /* espacio para botón + margen */
+    width: calc(100% - 64px) !important; 
     height: 48px !important;
     margin: 10px 8px 14px 14px !important;
     border-radius: 8px !important;
@@ -194,7 +209,6 @@
     font-size: 14px !important;
 }
 
-/* BOTÓN ENVIAR */
 .ic_send_button {
     width: 48px !important;
     height: 48px !important;
