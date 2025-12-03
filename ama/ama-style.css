@@ -1,36 +1,27 @@
 /* ===============================
-   RESET Y CONTENEDOR PRINCIPAL
+   BASE / LIMPIEZA
    =============================== */
 
 .ic_htmlbody,
 .ic_bodyarea {
-    background: transparent !important;
     margin: 0 !important;
     padding: 0 !important;
+    background: transparent !important;
 }
 
-/* Eliminar el fondo amarillo original */
-#ic_bodyarea,
-#ic_shadow,
-#ic_loader_animation {
-    display: none !important;
+/* por si acaso */
+#ic_bodyarea {
+    background: transparent !important;
 }
 
-/* Contenedor principal del chat */
+/* Contenedor principal del chat dentro del iframe */
 .ic_maincontentarea {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
+    position: relative !important;
     width: 100% !important;
     height: 100% !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-
     background: #ffffff !important;
     font-family: "Inter", Arial, sans-serif !important;
+    box-sizing: border-box !important;
 }
 
 .ic_maincontentarea *,
@@ -39,10 +30,7 @@
     box-sizing: border-box !important;
 }
 
-/* ===============================
-   ELIMINAR ELEMENTOS DE RESCUE
-   =============================== */
-
+/* Quitar cabecera propia de Rescue y otros controles que no usamos */
 .ic_windowtitle_container,
 .ic_custom_logo,
 .ic_custom_icon,
@@ -63,21 +51,26 @@
     display: none !important;
 }
 
-.ic_statustext,
-.ic_statustext_hidden {
-    display: none !important;
+/* Dejamos la ic_statustext tal cual, solo un poco de separación */
+.ic_statustext {
+    margin: 8px 16px 4px 16px !important;
 }
 
 /* ===============================
-   ÁREA DE MENSAJES
+   ÁREA DE MENSAJES (LOG)
    =============================== */
 
 .ic_chatlog {
-    flex: 1 1 auto !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 80px !important;   /* espacio para textarea + botón */
     padding: 18px !important;
     background: #ffffff !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    z-index: 1 !important;
 }
 
 .ic_text_chatline {
@@ -86,24 +79,26 @@
     flex-direction: column !important;
 }
 
-/* Mostrar hora, ocultar "Cliente:" / "Técnico:" */
+/* tabla que contiene hora + “Cliente:”/“Técnico:” */
 .ic_text_chattable {
-    display: inline-block !important;
     margin-bottom: 4px !important;
 }
 
+/* hora */
 .ic_text_chattable_td1 {
     font-size: 11px !important;
     color: #999 !important;
+    padding-right: 4px !important;
 }
 
-/* Ocultar etiquetas */
+/* ocultar SOLO “Cliente:” / “David Martinez:” */
 .ic_text_chattable_td2_client,
-.ic_text_chattable_td2_tc {
+.ic_text_chattable_td2_tc,
+.ic_control_chatname {
     display: none !important;
 }
 
-/* Burbujas del técnico */
+/* Mensajes del técnico */
 .ic_text_chatline_tc .ic_text_chatcontent {
     background: #e8f0ff !important;
     color: #1d2c6b !important;
@@ -113,7 +108,7 @@
     box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
 }
 
-/* Burbujas del cliente */
+/* Mensajes del cliente */
 .ic_text_chatline_client .ic_text_chatcontent {
     background: #efefef !important;
     color: #333 !important;
@@ -123,8 +118,20 @@
     box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
 }
 
+/* Mensajes de sistema (Conectando, etc.) */
+.ic_control_chatline,
+.ic_text_system,
+.ic_text_chatline_system,
+.ic_text_chatline .ic_text_system {
+    color: #777 !important;
+    font-size: 13px !important;
+    padding: 2px 0 !important;
+    background: none !important;
+    margin: 4px 16px !important;
+}
+
 /* ===============================
-   ENLACES EN LOS MENSAJES
+   LINKS EN MENSAJES (applet, etc.)
    =============================== */
 
 .ic_text_chatcontent a,
@@ -136,40 +143,47 @@
 }
 
 /* ===============================
-   INPUT DE ESCRITURA + BOTÓN
+   INPUT + BOTÓN ENVIAR (ABAJO FIJO)
    =============================== */
 
-/* Clase usada al iniciar el chat + clase final */
+/* Tanto al abrir (ic_chattext_first) como después (ic_chattext) */
 .ic_chattext_first,
 .ic_chattext {
-    width: calc(100% - 80px) !important;
-    height: 48px !important;
-    margin: 10px 8px 14px 14px !important;
-    border-radius: 8px !important;
-    border: 1px solid #cfd3d8 !important;
+    position: absolute !important;
+    left: 16px !important;
+    right: 76px !important;  /* espacio para el botón a la derecha */
+    bottom: 16px !important;
+
+    height: 44px !important;
+    margin: 0 !important;
     padding: 10px !important;
 
+    border-radius: 8px !important;
+    border: 1px solid #cfd3d8 !important;
     background: #f7f9fb !important;
     font-size: 14px !important;
 
     resize: none !important;
-    display: inline-block !important;
-
-    box-sizing: border-box !important;
+    z-index: 2 !important;
 }
 
 /* Botón enviar */
 .ic_send_button {
-    width: 48px !important;
-    height: 48px !important;
-    margin: 10px 14px 14px 0 !important;
+    position: absolute !important;
+    right: 16px !important;
+    bottom: 16px !important;
 
+    width: 44px !important;
+    height: 44px !important;
     border-radius: 10px !important;
-    background: #d7a500 !important;
 
-    display: inline-flex !important;
-    justify-content: center !important;
+    background: #d7a500 !important;
+    display: flex !important;
     align-items: center !important;
+    justify-content: center !important;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25) !important;
+    z-index: 2 !important;
 }
 
 .ic_send_button:hover {
