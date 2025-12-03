@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE2
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -208,28 +208,37 @@
     display: none !important;
 }
 
+/* -------------------------------------------------------------------------
+   BOTÓN ENVIAR: ASEGURAR QUE RECIBE EL CLICK
+------------------------------------------------------------------------- */
 
-/* --- FORZAR QUE EL BOTÓN SEA CLICABLE, AUNQUE ESTÉ "DISABLED" --- */
-.ic_send_button_disabled {
-    background: #d7a500 !important;  /* mismo color que el activo */
-    opacity: 1 !important;
+/* El botón activo */
+#ic_send_button,
+.ic_send_button {
     pointer-events: auto !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 20 !important;
 }
 
-/* --- Asegurar que textarea y botón estén por encima de overlays --- */
-#ic_chattext,
-#ic_send_button {
-    z-index: 100 !important;
+/* Que el dibujito de la flecha NO intercepte el clic */
+.ic_send_button::after {
+    pointer-events: none !important;
 }
 
+/* Por si alguna barra está por encima del botón */
 #ic_progressbars,
 #ic_progressbars_chatbottom {
     pointer-events: none !important;
 }
-/* --- Hora del cliente totalmente alineada a la derecha --- */
+/* -------------------------------------------------------------------------
+   HORA DEL CLIENTE A LA DERECHA
+------------------------------------------------------------------------- */
+
 .ic_text_chatline_client table.ic_text_chattable td.ic_text_chattable_td1 {
     text-align: right !important;
     display: block !important;
     width: 100% !important;
+    font-size: 13px !important;
+    color: #9a9a9a !important;
 }
-
