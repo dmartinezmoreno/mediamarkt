@@ -75,18 +75,6 @@
     color: #9a9a9a !important;
 }
 
-/* Asegurar alineación a DERECHA en clientes */
-.ic_text_chatline_client table.ic_text_chattable {
-    display: block !important;
-    width: 100% !important;
-}
-
-.ic_text_chatline_client .ic_text_chattable_td1 {
-    text-align: right !important;
-    display: block !important;
-    width: 100% !important;
-}
-
 /* =========================================================================
    OCULTAR “Cliente:” y “Técnico:”
    ========================================================================= */
@@ -238,6 +226,10 @@
     z-index: 9999 !important;
     pointer-events: auto !important;
 }
+/* --- El botón NO debe ser visible al iniciar el chat --- */
+#ic_send_button {
+    display: none !important;
+}
 
 /* Restaurar el icono perdido tras usar `all: unset` */
 #ic_send_button::after {
@@ -247,13 +239,20 @@
     font-weight: bold !important;
     pointer-events: none !important;
 }
-/* -------------------------------------------------------------------------
-   FIX DEFINITIVO HORA A LA DERECHA
-------------------------------------------------------------------------- */
-.ic_text_chatline_client table.ic_text_chattable td.ic_text_chattable_td1 {
-    unicode-bidi: normal !important;
-    text-align: right !important;
+/* ============================
+   HORA DEL CLIENTE A LA DERECHA
+   ============================ */
+
+/* 1) La tabla que contiene la hora ocupa todo el ancho y alinea a la derecha */
+.ic_text_chatline_client table.ic_text_chattable {
     display: block !important;
     width: 100% !important;
+    text-align: right !important;
+    direction: ltr !important;
+    unicode-bidi: normal !important;
 }
 
+/* 2) El TD de la hora también a la derecha (refuerzo final) */
+.ic_text_chatline_client td.ic_text_chattable_td1 {
+    text-align: right !important;
+}
