@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME2
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -13,7 +13,6 @@
     height: 100% !important;
     background: #fff !important;
     overflow: hidden !important;
-
     font-family: "Inter", Arial, sans-serif !important;
 }
 
@@ -22,23 +21,21 @@
 }
 
 /* =========================================================================
-   SCROLL REAL DEL CHAT
+   SCROLL DEL CHAT
    ========================================================================= */
 #ic_chatlog {
     overflow-y: auto !important;
     overflow-x: hidden !important;
-
     max-height: calc(100% - 130px) !important;
     min-height: 0 !important;
-
     padding: 18px !important;
-    padding-bottom: 90px !important; /* deja espacio para el input */
+    padding-bottom: 90px !important;
     background: #ffffff !important;
     box-sizing: border-box !important;
 }
 
 /* =========================================================================
-   BURBUJAS DE MENSAJES
+   BURBUJAS
    ========================================================================= */
 .ic_text_chatline {
     margin-bottom: 14px !important;
@@ -71,22 +68,19 @@
 }
 
 /* =========================================================================
-   HORA MÁS PEQUEÑA Y ALINEACIÓN
+   HORA MÁS PEQUEÑA Y A LA DERECHA (cliente)
    ========================================================================= */
 .ic_text_chattable_td1 {
     font-size: 13px !important;
     color: #9a9a9a !important;
 }
 
-/* Hora del cliente a la derecha */
-.ic_text_chatline_client .ic_text_chattable_td1 {
-    text-align: right !important;
-    display: block !important;
+.ic_text_chatline_client .ic_text_chattable {
     width: 100% !important;
 }
 
-/* La tabla ocupa todo el ancho para que la hora pueda alinearse */
-.ic_text_chatline_client .ic_text_chattable {
+.ic_text_chatline_client .ic_text_chattable_td1 {
+    text-align: right !important;
     display: block !important;
     width: 100% !important;
 }
@@ -101,7 +95,7 @@
 }
 
 /* =========================================================================
-   MENSAJES DEL SISTEMA (Conectando…)
+   MENSAJES DE SISTEMA
    ========================================================================= */
 .ic_control_chatline,
 .ic_text_system,
@@ -115,7 +109,7 @@
 }
 
 /* =========================================================================
-   ENLACES (Descargar applet, Haga clic aquí)
+   ENLACES
    ========================================================================= */
 .ic_link_chatcontent,
 .ic_linkhover_chatcontent {
@@ -125,15 +119,12 @@
 }
 
 /* =========================================================================
-   INPUT DE MENSAJES — ABAJO Y EN LA MISMA LÍNEA
+   TEXTAREA — alineado abajo
    ========================================================================= */
-
-/* Apariencia general del textarea */
 #ic_chattext,
 .ic_chattext_first {
     height: 48px !important;
     resize: none !important;
-
     background: #f7f9fb !important;
     border-radius: 8px !important;
     border: 1px solid #cfd3d8 !important;
@@ -142,38 +133,30 @@
     box-sizing: border-box !important;
 }
 
-/* Posición del textarea: pegado al fondo */
 #ic_chattext {
     position: absolute !important;
     left: 16px !important;
     right: 80px !important;
     bottom: 16px !important;
     margin: 0 !important;
-    display: none !important; /* solo cuando técnico conectado */
+    display: none !important;
 }
 
 /* =========================================================================
-   BOTÓN ENVIAR (AMARILLO) ALINEADO AL TEXTAREA
+   BOTÓN ENVIAR — alineado al textarea (posición NO se toca)
    ========================================================================= */
 .ic_send_button,
 .ic_send_button_disabled {
     position: absolute !important;
     bottom: 16px !important;
     right: 16px !important;
-
     width: 48px !important;
     height: 48px !important;
     border-radius: 10px !important;
-
     margin: 0 !important;
-    display: none !important; /* solo cuando técnico conectado */
-
+    display: none !important;
     justify-content: center !important;
     align-items: center !important;
-
-    /* FIX botón no clicable */
-    z-index: 50 !important;
-    pointer-events: auto !important;
 }
 
 .ic_send_button {
@@ -191,32 +174,25 @@
     pointer-events: none !important;
 }
 
-/* Icono flecha */
+/* Icono */
 .ic_send_button::after {
     content: "➜";
     font-size: 20px;
     color: white;
     font-weight: bold;
-    pointer-events: none !important; /* la flecha no bloquea el clic */
+    pointer-events: none !important;  /* el icono no bloquea clics */
 }
 
 /* =========================================================================
-   MOSTRAR INPUT + BOTÓN SOLO CUANDO EL TÉCNICO SE CONECTA
+   MOSTRAR TEXTAREA + BOTÓN SOLO CUANDO EL TÉCNICO SE CONECTA
    ========================================================================= */
 #ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_chattext,
 #ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_send_button {
-    display: block !important;
+    display: flex !important;
 }
-/* El área clicable interna de Rescue necesita que NO haya flex */
-#ic_send_button {
-    display: block !important;
-    line-height: 48px !important;
-    text-align: center !important;
-}
-
 
 /* =========================================================================
-   OCULTAR ELEMENTOS QUE NO QUEREMOS VER
+   OCULTAR ELEMENTOS INNECESARIOS
    ========================================================================= */
 .ic_windowtitle_container,
 .ic_custom_logo,
@@ -225,4 +201,26 @@
 .ic_lang_select,
 .ic_lang_container {
     display: none !important;
+}
+
+/* =========================================================================
+   FORZAR QUE EL BOTÓN RECIBA EL CLIC (solución definitiva)
+   ========================================================================= */
+#ic_send_button {
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+}
+
+#ic_progressbars,
+#ic_progressbars_chatbottom,
+.ic_progressbars,
+.ic_progressbars_chatbottom,
+.ic_complementer,
+#ic_complementer,
+.ic_waitingtime,
+#ic_waitingtime,
+.ic_queueposition,
+#ic_queueposition {
+    pointer-events: none !important;
+    z-index: 1 !important;
 }
