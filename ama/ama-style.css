@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE2
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -240,30 +240,25 @@
     font-weight: bold !important;
     pointer-events: none !important;
 }
-/* ===============================================
-   FORZAR LA HORA DEL CLIENTE A LA DERECHA
-   =============================================== */
+/* ============================================================
+   FIX REAL — Alinear hora y nombre del cliente a la derecha
+   ============================================================ */
 
-/* 1) El TABLE del cliente NUNCA debe ser inline-block */
-.ic_text_chatline_client table.ic_text_chattable,
-.ic_text_chatline_client .ic_text_chattable[style] {
+/* Sobrescribir el inline-block que Rescue mete inline */
+.ic_text_chatline_client table.ic_text_chattable[style] {
     display: block !important;
     width: 100% !important;
+}
+
+/* Centrar toda la fila a la derecha */
+.ic_text_chatline_client .ic_text_chattable_tr {
     text-align: right !important;
 }
 
-/* 2) El TR también debe alinearse a la derecha */
-.ic_text_chatline_client table.ic_text_chattable tr[style],
-.ic_text_chatline_client table.ic_text_chattable tr {
-    display: block !important;
-    width: 100% !important;
+/* Las celdas heredan la alineación correctamente */
+.ic_text_chatline_client .ic_text_chattable_td1,
+.ic_text_chatline_client .ic_text_chattable_td2_client {
     text-align: right !important;
+    display: inline-block !important;
 }
 
-/* 3) El TD de hora debe romper su inline-block */
-.ic_text_chatline_client table.ic_text_chattable td.ic_text_chattable_td1[style],
-.ic_text_chatline_client table.ic_text_chattable td.ic_text_chattable_td1 {
-    display: block !important;
-    width: 100% !important;
-    text-align: right !important;
-}
