@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE2
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -244,14 +244,12 @@
    HORA DEL CLIENTE A LA DERECHA
    ============================ */
 
-/* Alinear toda la tabla del cliente a la derecha */
-.ic_text_chatline_client table.ic_text_chattable {
+.ic_text_chatline_client .ic_text_chattable[style] {
     display: block !important;
     width: 100% !important;
-    text-align: right !important;
 }
 
-/* La fila completa alineada a la derecha */
+/* Fila entera alineada a la derecha */
 .ic_text_chatline_client table.ic_text_chattable tr {
     text-align: right !important;
 }
