@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE2
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -70,19 +70,15 @@
 /* =========================================================================
    HORA MÁS PEQUEÑA Y ALINEACIÓN
    ========================================================================= */
-.ic_text_chattable_td1 {
+.ic_text_chattable_td1,
+.ic_text_chattable_td2_client,
+.ic_text_chattable_td2_tc {
     font-size: 13px !important;
     color: #9a9a9a !important;
+    font-weight: normal !important;
+    padding-bottom: 2px !important;
 }
 
-/* =========================================================================
-   OCULTAR “Cliente:” y “Técnico:”
-   ========================================================================= */
-.ic_text_chattable_td2_client,
-.ic_text_chattable_td2_tc,
-.ic_control_chatname {
-    display: none !important;
-}
 
 /* =========================================================================
    MENSAJES DEL SISTEMA
@@ -248,16 +244,15 @@
    HORA DEL CLIENTE A LA DERECHA
    ============================ */
 
-/* 1) La tabla que contiene la hora ocupa todo el ancho y alinea a la derecha */
+/* Alinear toda la tabla del cliente a la derecha */
 .ic_text_chatline_client table.ic_text_chattable {
     display: block !important;
     width: 100% !important;
     text-align: right !important;
-    direction: ltr !important;
-    unicode-bidi: normal !important;
 }
 
-/* 2) El TD de la hora también a la derecha (refuerzo final) */
-.ic_text_chatline_client td.ic_text_chattable_td1 {
+/* La fila completa alineada a la derecha */
+.ic_text_chatline_client table.ic_text_chattable tr {
     text-align: right !important;
 }
+
