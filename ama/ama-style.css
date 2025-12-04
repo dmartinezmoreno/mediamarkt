@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE2
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -27,7 +27,6 @@
     overflow-y: auto !important;
     overflow-x: hidden !important;
     max-height: calc(100% - 130px) !important;
-    min-height: 0 !important;
     padding: 18px !important;
     padding-bottom: 90px !important; /* espacio para input */
     background: #ffffff !important;
@@ -51,7 +50,6 @@
     border-radius: 12px !important;
     align-self: flex-start !important;
     max-width: 70% !important;
-    overflow-wrap: break-word !important;
     box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
 }
 
@@ -63,12 +61,11 @@
     border-radius: 12px !important;
     align-self: flex-end !important;
     max-width: 70% !important;
-    overflow-wrap: break-word !important;
     box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
 }
 
 /* =========================================================================
-   HORA MÁS PEQUEÑA Y ALINEACIÓN
+   HORA Y NOMBRE FORMATO PEQUEÑO
    ========================================================================= */
 .ic_text_chattable_td1,
 .ic_text_chattable_td2_client,
@@ -79,6 +76,27 @@
     padding-bottom: 2px !important;
 }
 
+/* =========================================================================
+   ALINEAR HORA + NOMBRE A LA DERECHA PARA MENSAJES DEL CLIENTE
+   ========================================================================= */
+
+/* Tabla completa a la derecha */
+.ic_text_chatline_client table.ic_text_chattable {
+    margin-left: auto !important;   /* Desplaza la tabla a la derecha */
+    text-align: right !important;
+    display: block !important;
+}
+
+/* Fila interna también alineada */
+.ic_text_chatline_client table.ic_text_chattable tr {
+    text-align: right !important;
+}
+
+/* Celdas alineadas correctamente */
+.ic_text_chatline_client .ic_text_chattable_td1,
+.ic_text_chatline_client .ic_text_chattable_td2_client {
+    text-align: right !important;
+}
 
 /* =========================================================================
    MENSAJES DEL SISTEMA
@@ -95,17 +113,7 @@
 }
 
 /* =========================================================================
-   ENLACES
-   ========================================================================= */
-.ic_link_chatcontent,
-.ic_linkhover_chatcontent {
-    color: #0066cc !important;
-    cursor: pointer !important;
-    text-decoration: underline !important;
-}
-
-/* =========================================================================
-   INPUT DE MENSAJES — ABAJO
+   INPUT DE MENSAJES
    ========================================================================= */
 #ic_chattext,
 .ic_chattext_first {
@@ -124,65 +132,49 @@
     left: 16px !important;
     right: 80px !important;
     bottom: 16px !important;
-    margin: 0 !important;
-    display: none !important; /* visible solo si técnico conectado */
+    display: none !important;
 }
 
 /* =========================================================================
-   BOTÓN ENVIAR — PERFECTAMENTE ALINEADO
+   BOTÓN ENVIAR
    ========================================================================= */
-.ic_send_button,
-.ic_send_button_disabled {
+
+/* Forzar oculto inicial aunque Rescue meta inline-block */
+#ic_send_button[style] {
+    display: none !important;
+}
+
+#ic_send_button {
+    all: unset !important;
     position: absolute !important;
     bottom: 16px !important;
     right: 16px !important;
     width: 48px !important;
     height: 48px !important;
+    background: #d7a500 !important;
     border-radius: 10px !important;
-    margin: 0 !important;
-    display: none !important;
+    display: none !important; /* oculto inicial */
     justify-content: center !important;
     align-items: center !important;
-}
-
-.ic_send_button {
-    background: #d7a500 !important;
     cursor: pointer !important;
+    z-index: 9999 !important;
 }
 
-.ic_send_button:hover {
-    background: #b38a00 !important;
+#ic_send_button::after {
+    content: "➜" !important;
+    font-size: 20px !important;
+    color: white !important;
+    font-weight: bold !important;
 }
 
-.ic_send_button_disabled {
-    background: #e2c24a !important;
-    opacity: 0.4 !important;
-    pointer-events: none !important;
-}
-
-.ic_send_button::after {
-    content: "➜";
-    font-size: 20px;
-    color: white;
-    font-weight: bold;
-    pointer-events: none !important;
-}
-/* FORZAR OCULTACIÓN INICIAL DEL BOTÓN AUNQUE RESCUE LO PONGA INLINE */
-#ic_send_button[style] {
-    display: none !important;
-}
-
-
-/* =========================================================================
-   MOSTRAR INPUT + BOTÓN SOLO CUANDO HAY TÉCNICO
-   ========================================================================= */
+/* Mostrar input + botón SOLO si el técnico está conectado */
 #ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_chattext,
 #ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_send_button {
     display: flex !important;
 }
 
 /* =========================================================================
-   OCULTAR ELEMENTOS INÚTILES
+   OCULTAR ELEMENTOS INÚTILES DEL WIDGET
    ========================================================================= */
 .ic_windowtitle_container,
 .ic_custom_logo,
@@ -194,7 +186,7 @@
 }
 
 /* =========================================================================
-   OVERLAY QUE BLOQUEA EL BOTÓN → ELIMINADO
+   ELIMINAR OVERLAY QUE BLOQUEABA EL BOTÓN
    ========================================================================= */
 #ic_complementer {
     display: none !important;
@@ -203,62 +195,3 @@
     height: 0 !important;
     opacity: 0 !important;
 }
-
-/* -------------------------------------------------------------------------
-   FIX DEFINITIVO — ROMPER TODA REGLA DE RESCUE Y DEL NAVEGADOR
-------------------------------------------------------------------------- */
-#ic_send_button {
-    all: unset !important;
-    position: absolute !important;
-    bottom: 16px !important;
-    right: 16px !important;
-
-    width: 48px !important;
-    height: 48px !important;
-
-    background: #d7a500 !important;
-    border-radius: 10px !important;
-
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-
-    cursor: pointer !important;
-    z-index: 9999 !important;
-    pointer-events: auto !important;
-}
-/* --- El botón NO debe ser visible al iniciar el chat --- */
-#ic_send_button {
-    display: none !important;
-}
-
-/* Restaurar el icono perdido tras usar `all: unset` */
-#ic_send_button::after {
-    content: "➜" !important;
-    font-size: 20px !important;
-    color: white !important;
-    font-weight: bold !important;
-    pointer-events: none !important;
-}
-/* ============================================================
-   FIX REAL — Alinear hora y nombre del cliente a la derecha
-   ============================================================ */
-
-/* Sobrescribir el inline-block que Rescue mete inline */
-.ic_text_chatline_client table.ic_text_chattable[style] {
-    display: block !important;
-    width: 100% !important;
-}
-
-/* Centrar toda la fila a la derecha */
-.ic_text_chatline_client .ic_text_chattable_tr {
-    text-align: right !important;
-}
-
-/* Las celdas heredan la alineación correctamente */
-.ic_text_chatline_client .ic_text_chattable_td1,
-.ic_text_chatline_client .ic_text_chattable_td2_client {
-    text-align: right !important;
-    display: inline-block !important;
-}
-
