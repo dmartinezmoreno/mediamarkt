@@ -205,8 +205,15 @@
    ========================================================================= */
 #ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_chattext,
 #ic_chatlog:has(.ic_control_chatline_TC_CONNECTED) ~ #ic_send_button {
-    display: flex !important;
+    display: block !important;
 }
+/* El área clicable interna de Rescue necesita que NO haya flex */
+#ic_send_button {
+    display: block !important;
+    line-height: 48px !important;
+    text-align: center !important;
+}
+
 
 /* =========================================================================
    OCULTAR ELEMENTOS QUE NO QUEREMOS VER
