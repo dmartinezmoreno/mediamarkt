@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE3
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -217,4 +217,14 @@
     max-width: 70% !important;
     word-break: break-word !important;
 }
-
+/* =========================================================================
+   ENLACES — PARA QUE TODO LINK PEGADO SE VEA COMO LINK
+   ========================================================================= */
+.ic_link_chatcontent,
+.ic_linkhover_chatcontent,
+.ic_text_chatcontent a {
+    color: #0066cc !important;
+    cursor: pointer !important;
+    text-decoration: underline !important;
+    word-break: break-all !important; /* por si pegan un link larguísimo */
+}
