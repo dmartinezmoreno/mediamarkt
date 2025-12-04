@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE2
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -195,3 +195,26 @@
     height: 0 !important;
     opacity: 0 !important;
 }
+
+/* =========================================================================
+   FIX: PREVENIR QUE PALABRAS LARGAS SE SALGAN DE LA BURBUJA
+   ========================================================================= */
+.ic_text_chatcontent {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: pre-wrap !important;
+    max-width: 70% !important;
+}
+
+/* Asegurar que las burbujas del cliente nunca crecen más de lo debido */
+.ic_text_chatline_client .ic_text_chatcontent {
+    max-width: 70% !important;
+    word-break: break-word !important;
+}
+
+/* Y también las del técnico */
+.ic_text_chatline_tc .ic_text_chatcontent {
+    max-width: 70% !important;
+    word-break: break-word !important;
+}
+
