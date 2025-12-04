@@ -1,5 +1,5 @@
 /* =========================================================================
-   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE3
+   ELIMINAR ESPACIO BLANCO SUPERIOR DEL IFRAME DE RESCUE
    ========================================================================= */
 #ic_bodyarea {
     display: none !important;
@@ -214,3 +214,46 @@
     height: 0 !important;
     opacity: 0 !important;
 }
+
+/* -------------------------------------------------------------------------
+   FIX DEFINITIVO — ROMPER TODA REGLA DE RESCUE Y DEL NAVEGADOR
+------------------------------------------------------------------------- */
+#ic_send_button {
+    all: unset !important;
+    position: absolute !important;
+    bottom: 16px !important;
+    right: 16px !important;
+
+    width: 48px !important;
+    height: 48px !important;
+
+    background: #d7a500 !important;
+    border-radius: 10px !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    cursor: pointer !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}
+
+/* Restaurar el icono perdido tras usar `all: unset` */
+#ic_send_button::after {
+    content: "➜" !important;
+    font-size: 20px !important;
+    color: white !important;
+    font-weight: bold !important;
+    pointer-events: none !important;
+}
+/* -------------------------------------------------------------------------
+   FIX DEFINITIVO HORA A LA DERECHA
+------------------------------------------------------------------------- */
+.ic_text_chatline_client table.ic_text_chattable td.ic_text_chattable_td1 {
+    unicode-bidi: normal !important;
+    text-align: right !important;
+    display: block !important;
+    width: 100% !important;
+}
+
