@@ -78,8 +78,15 @@
     color: #9a9a9a !important;
 }
 
+/* Hora del cliente a la derecha */
 .ic_text_chatline_client .ic_text_chattable_td1 {
     text-align: right !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* La tabla ocupa todo el ancho para que la hora pueda alinearse */
+.ic_text_chatline_client .ic_text_chattable {
     display: block !important;
     width: 100% !important;
 }
@@ -135,14 +142,14 @@
     box-sizing: border-box !important;
 }
 
-/* Posición del textarea: pegado al fondo, dejando hueco al botón */
+/* Posición del textarea: pegado al fondo */
 #ic_chattext {
     position: absolute !important;
     left: 16px !important;
     right: 80px !important;
     bottom: 16px !important;
     margin: 0 !important;
-    display: none !important;  /* se mostrará sólo cuando el técnico se conecte */
+    display: none !important; /* solo cuando técnico conectado */
 }
 
 /* =========================================================================
@@ -157,11 +164,16 @@
     width: 48px !important;
     height: 48px !important;
     border-radius: 10px !important;
-    margin: 0 !important;
 
-    display: none !important;  /* se mostrará sólo cuando el técnico se conecte */
+    margin: 0 !important;
+    display: none !important; /* solo cuando técnico conectado */
+
     justify-content: center !important;
     align-items: center !important;
+
+    /* FIX botón no clicable */
+    z-index: 50 !important;
+    pointer-events: auto !important;
 }
 
 .ic_send_button {
@@ -179,12 +191,13 @@
     pointer-events: none !important;
 }
 
-/* Icono del botón enviar */
+/* Icono flecha */
 .ic_send_button::after {
     content: "➜";
     font-size: 20px;
     color: white;
     font-weight: bold;
+    pointer-events: none !important; /* la flecha no bloquea el clic */
 }
 
 /* =========================================================================
@@ -205,36 +218,4 @@
 .ic_lang_select,
 .ic_lang_container {
     display: none !important;
-}
-
-/* -------------------------------------------------------------------------
-   BOTÓN ENVIAR: ASEGURAR QUE RECIBE EL CLICK
-------------------------------------------------------------------------- */
-
-/* El botón activo: SOLO arreglamos clic y capa, no la posición */
-#ic_send_button,
-.ic_send_button {
-    pointer-events: auto !important;
-    cursor: pointer !important;
-    z-index: 50 !important;
-}
-
-/* Que el dibujito de la flecha NO intercepte el clic */
-.ic_send_button::after {
-    pointer-events: none !important;
-}
-
-/* Por si alguna barra está por encima del botón */
-#ic_progressbars,
-#ic_progressbars_chatbottom {
-    pointer-events: none !important;
-}
-
-/* -------------------------------------------------------------------------
-   REFORZAR HORA DEL CLIENTE A LA DERECHA
-------------------------------------------------------------------------- */
-.ic_text_chatline_client table.ic_text_chattable td.ic_text_chattable_td1 {
-    text-align: right !important;
-    display: block !important;
-    width: 100% !important;
 }
